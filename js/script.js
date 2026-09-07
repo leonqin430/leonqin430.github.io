@@ -45,7 +45,7 @@
     filterButtons.forEach(function (btn) {
       var isActive = btn.getAttribute('data-filter') === filter;
       btn.classList.toggle('is-active', isActive);
-      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       if (isActive) activeBtn = btn;
     });
     updateThumb(activeBtn);
@@ -79,18 +79,24 @@
   var stmtButtons = document.querySelectorAll('.stmt-btn');
   var stmtActive = null;
   stmtButtons.forEach(function (btn) {
+    btn.setAttribute('aria-controls', 'stmt-' + btn.getAttribute('data-stmt'));
+    btn.setAttribute('aria-expanded', 'false');
     btn.addEventListener('click', function () {
       var card = btn.closest('.stmt-card');
       if (card) card.classList.add('clicked');
       var panel = document.getElementById('stmt-' + btn.getAttribute('data-stmt'));
       if (card) card.querySelectorAll('.stmt-panel').forEach(function (p) { p.hidden = true; });
-      stmtButtons.forEach(function (b) { b.classList.remove('active'); });
+      stmtButtons.forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-expanded', 'false');
+      });
       if (stmtActive === btn) {
         stmtActive = null;
         return;
       }
       if (panel) panel.hidden = false;
       btn.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
       stmtActive = btn;
     });
   });
@@ -101,9 +107,12 @@
   var moreTrigger = document.getElementById('more-trigger');
   var moreContent = document.getElementById('more-content');
   if (moreTrigger && moreContent) {
+    moreTrigger.setAttribute('aria-controls', 'more-content');
+    moreTrigger.setAttribute('aria-expanded', 'false');
     moreTrigger.addEventListener('click', function (e) {
       e.preventDefault();
       moreContent.hidden = !moreContent.hidden;
+      moreTrigger.setAttribute('aria-expanded', String(!moreContent.hidden));
       if (!moreContent.hidden) moreContent.scrollIntoView({ behavior: 'smooth' });
     });
   }
@@ -112,11 +121,16 @@
    * Collapsible abstract + BibTeX blocks
    * ------------------------------------------------------------ */
   document.querySelectorAll('[data-bibtex], [data-abs]').forEach(function (link) {
+    var id = link.getAttribute('data-bibtex') || link.getAttribute('data-abs');
+    link.setAttribute('aria-controls', id);
+    link.setAttribute('aria-expanded', 'false');
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      var id = link.getAttribute('data-bibtex') || link.getAttribute('data-abs');
       var target = document.getElementById(id);
-      if (target) target.hidden = !target.hidden;
+      if (target) {
+        target.hidden = !target.hidden;
+        link.setAttribute('aria-expanded', String(!target.hidden));
+      }
     });
   });
 

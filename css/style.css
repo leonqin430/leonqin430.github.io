@@ -88,6 +88,7 @@ sup { font-size: 0.7em; }
 .section-title {
   font-size: var(--section-title-size);
   font-weight: 700;
+  margin: 0;
 }
 
 .section-sub {
@@ -120,7 +121,7 @@ sup { font-size: 0.7em; }
   font-size: var(--name-size);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 14px;
+  margin: 0 0 14px;
 }
 
 .home-info > div { margin: 2px 0; }
@@ -388,7 +389,8 @@ sup.author-mark .mark-mail {
   line-height: 1.45;
   margin-bottom: 2px;
 }
-.pub-title a {
+.pub-title a,
+.pub-title span {
   color: var(--text);
   font-weight: 700;
 }

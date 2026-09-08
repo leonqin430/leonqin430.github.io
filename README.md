@@ -1,7 +1,6 @@
 # Personal Homepage
 
-A static personal academic homepage. No framework — plain HTML/CSS/JS,
-fully self-contained except Google Fonts.
+A static personal academic homepage.
 
 ## Structure
 

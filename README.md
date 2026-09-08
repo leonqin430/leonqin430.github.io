@@ -1,10 +1,7 @@
 # Personal Homepage
 
-A static personal academic homepage. Layout follows
-[Pingchuan Ma's template](https://github.com/PingchuanMa/PingchuanMa.github.io)
-(which is explicitly offered for reuse); colors, font, and the Selected/All
-publication toggle follow [Grace Luo's homepage](https://graceluo.net).
-No framework — plain HTML/CSS/JS, fully self-contained except Google Fonts.
+A static personal academic homepage. No framework — plain HTML/CSS/JS,
+fully self-contained except Google Fonts.
 
 ## Structure
 
@@ -12,7 +9,7 @@ No framework — plain HTML/CSS/JS, fully self-contained except Google Fonts.
 index.html        # all content lives here
 css/style.css     # palette tokens at the top, layout below
 js/script.js      # theme toggle, Selected/All filter, bibtex collapse/copy
-assets/           # profile photo + publication teasers (to be added)
+assets/           # profile photo + favicon
 ```
 
 ## Editing content

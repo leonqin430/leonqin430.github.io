@@ -218,7 +218,7 @@
             <span class="me">Huaiyuan Qin</span>, Muli Yang, Gabriel James Goenawan, Peng Hu, Chen Gong, Xi Peng, Hongyuan Zhu<sup class="author-mark"><svg class="mark-mail" role="img" aria-label="corresponding author"><use href="#icon-mail"/></svg></sup>
           </div>
           <div class="pub-links">
-            <span class="venue">arXiv 2026</span> /
+            <span class="venue">NeurIPS 2026</span> /
             <a href="#" data-abs="abs-attn">abs</a> /
             <a href="https://arxiv.org/abs/2605.07191" target="_blank">paper</a> /
             <a href="#" data-bibtex="bibtex-attn">bibtex</a>
@@ -227,10 +227,10 @@
             <p>A recent work shows that Attention Transfer, which transfers only the attention patterns from a pre-trained teacher Vision Transformer (ViT) to a randomly initialized standard student ViT, is sufficient to recover the full benefit of the teacher's pre-trained weights. We revisit this finding on a comprehensive benchmark of 20 teachers from 11 well-known ViT families and reveal that Attention Transfer is not universally effective. While 7 families transfer successfully, 4 consistently fail, falling up to 5.1% below the from-scratch no-transfer baseline. Further results demonstrate that this failure is family-consistent across model sizes, and persists under extended training durations, different transfer datasets, and out-of-distribution evaluations. Controlled analyses then consistently localize the problem to the attention-routing channel, indicating that the key issue is not whether the student can match the teacher's attention patterns, but whether the matched patterns remain functional for the student. Crucially, we identify architectural mismatch between the pre-trained teacher and the standard student as the primary mechanism. By adding only the teacher's native architectural components to the student in a randomly initialized state, we completely reverse the failure for all 4 families. Notably, these components alone do not improve from-scratch training, confirming that they specifically unlock the usability of the teacher's attention. We further systematically show that this failure is not explained by the inadequate choice of transfer loss or by differences in pre-training recipes. Our findings refine the prevailing understanding of attention in ViT representations: attention is sufficient <em>only</em> when the student architecture matches the teacher.</p>
           </div>
           <div class="bibtex" id="bibtex-attn" hidden>
-            <pre class="snippet"><code>@article{qin2026attention,
+            <pre class="snippet"><code>@inproceedings{qin2026attention,
   title={Attention Transfer Is Not Universally Effective for Vision Transformers},
   author={Qin, Huaiyuan and Yang, Muli and Goenawan, Gabriel James and Hu, Peng and Gong, Chen and Peng, Xi and Zhu, Hongyuan},
-  journal={arXiv preprint arXiv:2605.07191},
+  booktitle={Advances in Neural Information Processing Systems},
   year={2026}
 }</code></pre>
             <button type="button" class="copy-btn">copy</button>

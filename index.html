@@ -200,21 +200,10 @@
           </div>
           <div class="pub-links">
             <span class="venue">arXiv 2026</span> /
-            <a href="#" data-abs="abs-s2l">abs</a> /
-            <a href="https://arxiv.org/abs/2609.35745" target="_blank">paper</a> /
-            <a href="#" data-bibtex="bibtex-s2l">bibtex</a>
+            <a href="#" data-abs="abs-s2l">abs</a>
           </div>
           <div class="abs-panel" id="abs-s2l" hidden>
             <p>Linear Vision Transformers (ViTs) are designed to replace the attention in Softmax ViTs with the linear-complexity attention operator for more efficient token routing, but they require from-scratch pre-training and typically underperform the original Softmax version. How to initialize linear ViTs both efficiently and effectively still remains unclear. In this work, we explicitly ask: given that most foundation ViTs are built on the mainstream Softmax attention, can linear ViTs benefit from their pre-trained weights? Recent works on Attention Transfer show that attention is the effective transferable component between Softmax ViTs, suggesting attention alone suffices for such reuse. However, we find the opposite for Softmax-to-linear transfer. The attention weights are operator-specific: copying them barely helps, and is sometimes even worse than random initialization. Instead, the attention's token routing behavior can be recovered through distillation with a proper loss design, letting linear ViTs reduce the gap and even match Softmax ones. In contrast, the MLP weights, which carry the learned representation, are operator-agnostic: they can be transferred by simple direct copying, which already carries most of the benefit of the pre-trained weights. Thus, copying MLPs can serve as an effective foundation for Softmax-to-linear transfer: paired with the distilled attention, linear ViTs eventually close the remaining gap and even surpass Softmax ones. These findings hold consistently across various linear ViT variants, different model sizes, and diverse datasets. We hope this study deepens the understanding of reusing pre-trained weights across attention operators: copy what stays the same and distill what differs, to recover the benefit across the Softmax-to-linear boundary.</p>
-          </div>
-          <div class="bibtex" id="bibtex-s2l" hidden>
-            <pre class="snippet"><code>@article{qin2026copy,
-  title={Copy the Same, Distill the Difference: Initializing Linear Vision Transformers},
-  author={Qin, Huaiyuan and Yang, Muli and Goenawan, Gabriel James and Huang, Shiqi and Chong, Min Kass and Wiratama, Wahyu and Hu, Peng and Gong, Chen and Liu, Wu and Peng, Xi and Ho, Chun Jian and Zhu, Hongyuan},
-  journal={arXiv preprint arXiv:2609.35745},
-  year={2026}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -228,21 +217,10 @@
           </div>
           <div class="pub-links">
             <span class="venue">arXiv 2026</span> /
-            <a href="#" data-abs="abs-did">abs</a> /
-            <a href="https://arxiv.org/abs/2608.22368" target="_blank">paper</a> /
-            <a href="#" data-bibtex="bibtex-did">bibtex</a>
+            <a href="#" data-abs="abs-did">abs</a>
           </div>
           <div class="abs-panel" id="abs-did" hidden>
             <p>While linear attention is a compelling mechanism for high-resolution object detection due to its reduced cost for global token mixing, converting the Softmax-attention ViT backbone of a trained detector into a linear-attention one is not a trivial drop-in replacement. Directly swapping the attention operator leads to severe performance degradation, and generic label-free distillation, though effective for classification, often fails on detection tasks. We argue that the central challenge is <em>detector-interface preservation</em>: the converted backbone must reproduce the exact feature tensors expected by the fixed downstream detector, rather than merely imitating internal Softmax hidden states. To address this, we introduce Detector-Interface Distillation (DiD), a label-free conversion method that exclusively trains the linear-attention backbone by aligning detector-facing interface tensors with those of a frozen Softmax teacher. On DOTA-v1.5, DiD substantially outperforms established baselines and matches supervised, fully trained linear models. Adaptation completes in roughly 87 minutes on 4 GPUs, and the linearized backbone cuts inference latency by ~62% and peak memory by ~49%. We hope our findings offer the community a simple, label-free route to reusing trained Softmax detectors as efficient linear ones, and encourage interface-aware objectives in future architecture-conversion work.</p>
-          </div>
-          <div class="bibtex" id="bibtex-did" hidden>
-            <pre class="snippet"><code>@article{qin2026did,
-  title={{DiD} It in 87 Minutes: A Label-Free Softmax-to-Linear Adaptation of Vision Transformers for Object Detection},
-  author={Qin, Huaiyuan and Goenawan, Gabriel James and Lin, Zihang and Yang, Muli and Zhu, Hongyuan},
-  journal={arXiv preprint arXiv:2608.22368},
-  year={2026}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -256,21 +234,10 @@
           </div>
           <div class="pub-links">
             <span class="venue">NeurIPS 2026</span> /
-            <a href="#" data-abs="abs-attn">abs</a> /
-            <a href="https://arxiv.org/abs/2605.07191" target="_blank">paper</a> /
-            <a href="#" data-bibtex="bibtex-attn">bibtex</a>
+            <a href="#" data-abs="abs-attn">abs</a>
           </div>
           <div class="abs-panel" id="abs-attn" hidden>
             <p>A recent work shows that Attention Transfer, which transfers only the attention patterns from a pre-trained teacher Vision Transformer (ViT) to a randomly initialized standard student ViT, is sufficient to recover the full benefit of the teacher's pre-trained weights. We revisit this finding on a comprehensive benchmark of 20 teachers from 11 well-known ViT families and reveal that Attention Transfer is not universally effective. While 7 families transfer successfully, 4 consistently fail, falling up to 5.1% below the from-scratch no-transfer baseline. Further results demonstrate that this failure is family-consistent across model sizes, and persists under extended training durations, different transfer datasets, and out-of-distribution evaluations. Controlled analyses then consistently localize the problem to the attention-routing channel, indicating that the key issue is not whether the student can match the teacher's attention patterns, but whether the matched patterns remain functional for the student. Crucially, we identify architectural mismatch between the pre-trained teacher and the standard student as the primary mechanism. By adding only the teacher's native architectural components to the student in a randomly initialized state, we completely reverse the failure for all 4 families. Notably, these components alone do not improve from-scratch training, confirming that they specifically unlock the usability of the teacher's attention. We further systematically show that this failure is not explained by the inadequate choice of transfer loss or by differences in pre-training recipes. Our findings refine the prevailing understanding of attention in ViT representations: attention is sufficient <em>only</em> when the student architecture matches the teacher.</p>
-          </div>
-          <div class="bibtex" id="bibtex-attn" hidden>
-            <pre class="snippet"><code>@inproceedings{qin2026attention,
-  title={Attention Transfer Is Not Universally Effective for Vision Transformers},
-  author={Qin, Huaiyuan and Yang, Muli and Goenawan, Gabriel James and Hu, Peng and Gong, Chen and Peng, Xi and Zhu, Hongyuan},
-  booktitle={Advances in Neural Information Processing Systems},
-  year={2026}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -284,21 +251,10 @@
           </div>
           <div class="pub-links">
             <span class="venue">EMNLP 2026</span> <span class="pub-tag tag-findings">Findings</span> /
-            <a href="#" data-abs="abs-sdg">abs</a> /
-            <a href="https://arxiv.org/abs/2605.21919" target="_blank">paper</a> /
-            <a href="#" data-bibtex="bibtex-sdg">bibtex</a>
+            <a href="#" data-abs="abs-sdg">abs</a>
           </div>
           <div class="abs-panel" id="abs-sdg" hidden>
             <p>Assessing progress toward the Sustainable Development Goals (SDGs) requires multi-step reasoning over visual cues, contextual knowledge, and development indicators, where incomplete evidence use and imperfect evidence integration can introduce hidden prediction biases. Real-world SDG monitoring further spans both qualitative judgments and quantitative estimation. However, existing benchmarks typically evaluate these aspects in isolation, obscuring systematic biases that emerge when models substitute priors for evidence. To address this gap, we propose SDGBiasBench, a large-scale benchmark suite for SDG-oriented vision-language reasoning. Spanning 500k expert-involved multiple-choice questions and 50k regression tasks, the benchmark enables comprehensive assessment of both decision-level and estimation-level bias in Vision&ndash;Language Models (VLMs). Evaluations on SDGBiasBench reveal an intrinsic SDG bias in current VLMs, where predictions are frequently driven by SDG specific priors rather than reliable multi-modal cues. To mitigate such bias, we propose CADE (Contrastive Adaptive Debias Ensemble), a training-free, plug-and-play method that leverages modality-specific answer priors. CADE yields significant gains on the proposed benchmark, improving multiple-choice accuracy by up to 25% and reducing regression MAE by up to 12 points across multiple VLMs. We hope our work can foster the development of more fair and reliable AI systems for sustainable development.</p>
-          </div>
-          <div class="bibtex" id="bibtex-sdg" hidden>
-            <pre class="snippet"><code>@inproceedings{lin2026sdgbiasbench,
-  title={{SDGBiasBench}: Benchmarking and Mitigating Vision--Language Models' Biases in Sustainable Development Goals},
-  author={Lin, Zihang and Qin, Huaiyuan and Yang, Muli and Zhu, Hongyuan},
-  booktitle={Findings of the Association for Computational Linguistics: EMNLP 2026},
-  year={2026}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -312,21 +268,10 @@
           </div>
           <div class="pub-links">
             <span class="venue">CVPR 2026</span> <span class="pub-tag tag-findings">Findings</span> /
-            <a href="#" data-abs="abs-pruning">abs</a> /
-            <a href="https://arxiv.org/abs/2604.07306" target="_blank">paper</a> /
-            <a href="#" data-bibtex="bibtex-pruning">bibtex</a>
+            <a href="#" data-abs="abs-pruning">abs</a>
           </div>
           <div class="abs-panel" id="abs-pruning" hidden>
             <p>Existing dynamic data pruning methods often fail under noisy-label settings, as they typically rely on per-sample loss as the ranking criterion. This could mistakenly lead to preserving noisy samples due to their high loss values, resulting in significant performance drop. To address this, we propose AlignPrune, a noise-robust module designed to enhance the reliability of dynamic pruning under label noise. Specifically, AlignPrune introduces the Dynamic Alignment Score (DAS), which is a loss-trajectory-based criterion that enables more accurate identification of noisy samples, thereby improving pruning effectiveness. As a simple yet effective plug-and-play module, AlignPrune can be seamlessly integrated into state-of-the-art dynamic pruning frameworks, consistently outperforming them without modifying either the model architecture or the training pipeline. Extensive experiments on five widely-used benchmarks across various noise types and pruning ratios demonstrate the effectiveness of AlignPrune, boosting accuracy by up to 6.3% over state-of-the-art baselines. Our results offer a generalizable solution for pruning under noisy data, encouraging further exploration of learning in real-world scenarios. Code is available at: https://github.com/leonqin430/AlignPrune.</p>
-          </div>
-          <div class="bibtex" id="bibtex-pruning" hidden>
-            <pre class="snippet"><code>@inproceedings{qin2026beyond,
-  title={Beyond Loss Values: Robust Dynamic Pruning via Loss Trajectory Alignment},
-  author={Qin, Huaiyuan and Yang, Muli and Goenawan, Gabriel James and Wang, Kai and Wang, Zheng and Hu, Peng and Peng, Xi and Zhu, Hongyuan},
-  booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Findings},
-  year={2026}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -341,21 +286,10 @@
           <div class="pub-links">
             <span class="venue">AAAI 2026</span> /
             <a href="#" data-abs="abs-detector">abs</a> /
-            <a href="https://arxiv.org/abs/2602.01973" target="_blank">paper</a> /
-            <a href="https://github.com/muliyangm/AIGI-Det-Calib" target="_blank">code</a> /
-            <a href="#" data-bibtex="bibtex-detector">bibtex</a>
+            <a href="https://github.com/muliyangm/AIGI-Det-Calib" target="_blank">code</a>
           </div>
           <div class="abs-panel" id="abs-detector" hidden>
             <p>Despite being trained on balanced datasets, existing AI-generated image detectors often exhibit systematic bias at test time, frequently misclassifying fake images as real. We hypothesize that this behavior stems from distributional shift in fake samples and implicit priors learned during training. Specifically, models tend to overfit to superficial artifacts that do not generalize well across different generation methods, leading to a misaligned decision threshold when faced with test-time distribution shift. To address this, we propose a theoretically grounded post-hoc calibration framework based on Bayesian decision theory. In particular, we introduce a learnable scalar correction to the model's logits, optimized on a small validation set from the target distribution while keeping the backbone frozen. This parametric adjustment compensates for distributional shift in model output, realigning the decision boundary even without requiring ground-truth labels. Experiments on challenging benchmarks show that our approach significantly improves robustness without retraining, offering a lightweight and principled solution for reliable and adaptive AI-generated image detection in the open world. Code is available at https://github.com/muliyangm/AIGI-Det-Calib.</p>
-          </div>
-          <div class="bibtex" id="bibtex-detector" hidden>
-            <pre class="snippet"><code>@inproceedings{yang2026your,
-  title={Your {AI}-Generated Image Detector Can Secretly Achieve {SOTA} Accuracy, If Calibrated},
-  author={Yang, Muli and Goenawan, Gabriel James and Wang, Henan and Qin, Huaiyuan and Xu, Chenghao and Yang, Yanhua and Fang, Fen and Sun, Ying and Lim, Joo-Hwee and Zhu, Hongyuan},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  year={2026}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -370,21 +304,10 @@
           <div class="pub-links">
             <span class="venue">TMLR 2025</span> /
             <a href="#" data-abs="abs-bic">abs</a> /
-            <a href="https://arxiv.org/abs/2509.11344" target="_blank">paper</a> /
-            <a href="https://openreview.net/forum?id=urWCU3YMA0" target="_blank">forum</a> /
-            <a href="#" data-bibtex="bibtex-bic">bibtex</a>
+            <a href="https://openreview.net/forum?id=urWCU3YMA0" target="_blank">forum</a>
           </div>
           <div class="abs-panel" id="abs-bic" hidden>
             <p>Self-supervised learning (SSL) conventionally relies on the instance consistency paradigm, assuming that different views of the same image can be treated as positive pairs. However, this assumption breaks down for non-iconic data, where different views may contain distinct objects or semantic information. In this paper, we investigate the effectiveness of SSL when instance consistency is not guaranteed. Through extensive ablation studies, we demonstrate that SSL can still learn meaningful representations even when positive pairs lack strict instance consistency. Furthermore, our analysis further reveals that increasing view diversity, by enforcing zero overlapping or using smaller crop scales, can enhance downstream performance on classification and dense prediction tasks. However, excessive diversity is found to reduce effectiveness, suggesting an optimal range for view diversity. To quantify this, we adopt the Earth Mover's Distance (EMD) as an estimator to measure mutual information between views, finding that moderate EMD values correlate with improved SSL learning, providing insights for future SSL framework design. We validate our findings across a range of settings, highlighting their robustness and applicability on diverse data sources.</p>
-          </div>
-          <div class="bibtex" id="bibtex-bic" hidden>
-            <pre class="snippet"><code>@article{qin2025beyond,
-  title={Beyond Instance Consistency: Investigating View Diversity in Self-supervised Learning},
-  author={Qin, Huaiyuan and Yang, Muli and Hu, Siyuan and Hu, Peng and Zhang, Yu and Gong, Chen and Zhu, Hongyuan},
-  journal={Transactions on Machine Learning Research},
-  year={2025}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -399,21 +322,10 @@
           <div class="pub-links">
             <span class="venue">ICCV 2025</span> <span class="pub-tag pub-award">Highlight</span> /
             <a href="#" data-abs="abs-score">abs</a> /
-            <a href="https://arxiv.org/abs/2507.12857" target="_blank">paper</a> /
-            <a href="https://github.com/HuangShiqi128/SCORE" target="_blank">code</a> /
-            <a href="#" data-bibtex="bibtex-score">bibtex</a>
+            <a href="https://github.com/HuangShiqi128/SCORE" target="_blank">code</a>
           </div>
           <div class="abs-panel" id="abs-score" hidden>
             <p>Most existing remote sensing instance segmentation approaches are designed for close-vocabulary prediction, limiting their ability to recognize novel categories or generalize across datasets. This restricts their applicability in diverse Earth observation scenarios. To address this, we introduce open-vocabulary (OV) learning for remote sensing instance segmentation. While current OV segmentation models perform well on natural image datasets, their direct application to remote sensing faces challenges such as diverse landscapes, seasonal variations, and the presence of small or ambiguous objects in aerial imagery. To overcome these challenges, we propose <b>SCORE</b> (<b>S</b>cene <b>C</b>ontext matters in <b>O</b>pen-vocabulary <b>RE</b>mote sensing instance segmentation), a framework that integrates multi-granularity scene context, i.e., regional context and global context, to enhance both visual and textual representations. Specifically, we introduce Region-Aware Integration, which refines class embeddings with regional context to improve object distinguishability. Additionally, we propose Global Context Adaptation, which enriches naive text embeddings with remote sensing global context, creating a more adaptable and expressive linguistic latent space for the classifier. We establish new benchmarks for OV remote sensing instance segmentation across diverse datasets. Experimental results demonstrate that, our proposed method achieves SOTA performance, which provides a robust solution for large-scale, real-world geospatial analysis. Our code is available at https://github.com/HuangShiqi128/SCORE.</p>
-          </div>
-          <div class="bibtex" id="bibtex-score" hidden>
-            <pre class="snippet"><code>@inproceedings{huang2025score,
-  title={{SCORE}: Scene Context Matters in Open-Vocabulary Remote Sensing Instance Segmentation},
-  author={Huang, Shiqi and He, Shuting and Qin, Huaiyuan and Wen, Bihan},
-  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-  year={2025}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>
@@ -428,21 +340,10 @@
           <div class="pub-links">
             <span class="venue">CVPR 2025</span> /
             <a href="#" data-abs="abs-owo">abs</a> /
-            <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Yang_Detecting_Open_World_Objects_via_Partial_Attribute_Assignment_CVPR_2025_paper.pdf" target="_blank">paper</a> /
-            <a href="https://github.com/muliyangm/PASS" target="_blank">code</a> /
-            <a href="#" data-bibtex="bibtex-owo">bibtex</a>
+            <a href="https://github.com/muliyangm/PASS" target="_blank">code</a>
           </div>
           <div class="abs-panel" id="abs-owo" hidden>
             <p>Despite being trained on massive data, today's vision foundation models still fall short in detecting open world objects. Apart from recognizing known objects from training, a successful Open World Object Detection (OWOD) system must also be able to detect unknown objects never seen before, without confusing them with the backgrounds. Unlike prevailing prior works that rely on probability models to learn "objectness", we focus on learning fine-grained, class-agnostic attributes, allowing the detection of both known and unknown objects in an explainable manner. In this paper, we propose Partial Attribute Assignment (PASS), aiming to automatically select and optimize a small, relevant subset of attributes from a large attribute pool. Specifically, we model attribute selection as a Partial Optimal Transport (POT) problem between known visual objects and the attribute pool, in which more relevant attributes signify more transported mass. PASS follows a curriculum schedule that progressively selects and optimizes a targeted subset of attributes during training, promoting stability and accuracy. Our method enjoys end-to-end optimization by minimizing the POT distance and the classification loss on known visual objects, demonstrating high training efficiency and superior OWOD performance among extensive experimental evaluations.</p>
-          </div>
-          <div class="bibtex" id="bibtex-owo" hidden>
-            <pre class="snippet"><code>@inproceedings{yang2025detecting,
-  title={Detecting Open World Objects via Partial Attribute Assignment},
-  author={Yang, Muli and Goenawan, Gabriel James and Qin, Huaiyuan and Han, Kai and Peng, Xi and Yang, Yanhua and Zhu, Hongyuan},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2025}
-}</code></pre>
-            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>

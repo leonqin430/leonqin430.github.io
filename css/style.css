@@ -401,10 +401,7 @@ sup.author-mark .mark-mail {
 .pub-authors a:hover { color: var(--link-hover); }
 .pub-authors .me { font-weight: 700; }
 
-.pub-links .venue {
-  font-weight: 700;
-  color: var(--text);
-}
+.pub-links .venue { color: var(--award); }
 
 .pub-award { color: var(--award); }
 

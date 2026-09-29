@@ -171,6 +171,15 @@
   });
 
   /* ------------------------------------------------------------
+   * Email link assembled at runtime (keeps the address out of
+   * the static HTML that spam harvesters scrape)
+   * ------------------------------------------------------------ */
+  var emailLink = document.getElementById('email-link');
+  if (emailLink) {
+    emailLink.setAttribute('href', 'mailto:' + 'huaiyuanq' + '@' + 'gmail.com');
+  }
+
+  /* ------------------------------------------------------------
    * Auto-updating copyright year
    * ------------------------------------------------------------ */
   var year = document.getElementById('year');

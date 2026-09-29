@@ -191,19 +191,30 @@
              <sup class="author-mark"><svg class="mark-mail" role="img" aria-label="corresponding author"><use href="#icon-mail"/></svg></sup> corresponding author
       -->
 
-      <!-- S2L (work in progress) -->
+      <!-- S2L -->
       <div class="pub-item" data-tags="selected">
         <div class="pub-body">
-          <div class="pub-title"><span>Copy the Same, Distill the Difference: Initializing Linear Vision Transformers</span></div>
+          <div class="pub-title"><a href="https://arxiv.org/abs/2609.35745" target="_blank">Copy the Same, Distill the Difference: Initializing Linear Vision Transformers</a></div>
           <div class="pub-authors">
-            <span class="me">Huaiyuan Qin</span>, Gabriel James Goenawan, Muli Yang, Hongyuan Zhu, <em>et&nbsp;al.</em>
+            <span class="me">Huaiyuan Qin</span>, Muli Yang, Gabriel James Goenawan, Shiqi Huang, Min Kass Chong, Wahyu Wiratama, Peng Hu, Chen Gong, Wu Liu, Xi Peng, Chun Jian Ho, Hongyuan Zhu<sup class="author-mark"><svg class="mark-mail" role="img" aria-label="corresponding author"><use href="#icon-mail"/></svg></sup>
           </div>
           <div class="pub-links">
-            <span class="venue">Coming Soon, 2026</span> /
-            <a href="#" data-abs="abs-s2l">abs</a>
+            <span class="venue">arXiv 2026</span> /
+            <a href="#" data-abs="abs-s2l">abs</a> /
+            <a href="https://arxiv.org/abs/2609.35745" target="_blank">paper</a> /
+            <a href="#" data-bibtex="bibtex-s2l">bibtex</a>
           </div>
           <div class="abs-panel" id="abs-s2l" hidden>
             <p>Linear Vision Transformers (ViTs) are designed to replace the attention in Softmax ViTs with the linear-complexity attention operator for more efficient token routing, but they require from-scratch pre-training and typically underperform the original Softmax version. How to initialize linear ViTs both efficiently and effectively still remains unclear. In this work, we explicitly ask: given that most foundation ViTs are built on the mainstream Softmax attention, can linear ViTs benefit from their pre-trained weights? Recent works on Attention Transfer show that attention is the effective transferable component between Softmax ViTs, suggesting attention alone suffices for such reuse. However, we find the opposite for Softmax-to-linear transfer. The attention weights are operator-specific: copying them barely helps, and is sometimes even worse than random initialization. Instead, the attention's token routing behavior can be recovered through distillation with a proper loss design, letting linear ViTs reduce the gap and even match Softmax ones. In contrast, the MLP weights, which carry the learned representation, are operator-agnostic: they can be transferred by simple direct copying, which already carries most of the benefit of the pre-trained weights. Thus, copying MLPs can serve as an effective foundation for Softmax-to-linear transfer: paired with the distilled attention, linear ViTs eventually close the remaining gap and even surpass Softmax ones. These findings hold consistently across various linear ViT variants, different model sizes, and diverse datasets. We hope this study deepens the understanding of reusing pre-trained weights across attention operators: copy what stays the same and distill what differs, to recover the benefit across the Softmax-to-linear boundary.</p>
+          </div>
+          <div class="bibtex" id="bibtex-s2l" hidden>
+            <pre class="snippet"><code>@article{qin2026copy,
+  title={Copy the Same, Distill the Difference: Initializing Linear Vision Transformers},
+  author={Qin, Huaiyuan and Yang, Muli and Goenawan, Gabriel James and Huang, Shiqi and Chong, Min Kass and Wiratama, Wahyu and Hu, Peng and Gong, Chen and Liu, Wu and Peng, Xi and Ho, Chun Jian and Zhu, Hongyuan},
+  journal={arXiv preprint arXiv:2609.35745},
+  year={2026}
+}</code></pre>
+            <button type="button" class="copy-btn">copy</button>
           </div>
         </div>
       </div>

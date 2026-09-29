@@ -19,7 +19,6 @@
   --thumb-ring: rgba(143, 179, 201, 0.55);
   --ph-bg: #1e2426;            /* placeholder image background */
   --ph-fg: #4a5d68;            /* placeholder image foreground */
-  --venue-red: #f85149;        /* true red, legible on dark */
   --card-border: rgba(255, 255, 255, 0.08);
 
   --page-width: 768px;
@@ -45,7 +44,6 @@
   --thumb-ring: rgba(98, 142, 167, 0.55);
   --ph-bg: #e7edf1;
   --ph-fg: #9db6c4;
-  --venue-red: #d93025;
   --card-border: rgba(31, 41, 55, 0.12);
 }
 
@@ -403,9 +401,9 @@ sup.author-mark .mark-mail {
 .pub-authors a:hover { color: var(--link-hover); }
 .pub-authors .me { font-weight: 700; }
 
-.pub-links .venue { color: var(--venue-red); }
+.pub-links .venue { color: var(--award); }
 
-.pub-award { color: var(--venue-red); }
+.pub-award { color: var(--award); }
 
 /* Collapsible abstract */
 .abs-panel {

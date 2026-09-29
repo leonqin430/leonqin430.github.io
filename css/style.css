@@ -432,6 +432,38 @@ sup.author-mark .mark-mail {
 }
 .abs-panel p { margin: 0; }
 
+/* Collapsible BibTeX */
+.bibtex {
+  position: relative;
+  margin-top: 8px;
+}
+.snippet {
+  background: var(--code-bg);
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: var(--code-size);
+  line-height: 1.5;
+  border-radius: 3px;
+  padding: 10px 12px;
+  margin: 0;
+  overflow-x: auto;
+}
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--thumb-ring);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+.copy-btn:hover { opacity: 1; border-color: var(--link); }
+
 /* ============================================================
    Education / Experience (structure from pingchuan.ma)
    ============================================================ */

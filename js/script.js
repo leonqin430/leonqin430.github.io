@@ -118,10 +118,10 @@
   }
 
   /* ------------------------------------------------------------
-   * Collapsible abstract blocks
+   * Collapsible abstract + BibTeX blocks
    * ------------------------------------------------------------ */
-  document.querySelectorAll('[data-abs]').forEach(function (link) {
-    var id = link.getAttribute('data-abs');
+  document.querySelectorAll('[data-bibtex], [data-abs]').forEach(function (link) {
+    var id = link.getAttribute('data-bibtex') || link.getAttribute('data-abs');
     link.setAttribute('aria-controls', id);
     link.setAttribute('aria-expanded', 'false');
     link.addEventListener('click', function (e) {
@@ -130,6 +130,33 @@
       if (target) {
         target.hidden = !target.hidden;
         link.setAttribute('aria-expanded', String(!target.hidden));
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------
+   * Copy-to-clipboard buttons for BibTeX
+   * ------------------------------------------------------------ */
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var wrapper = btn.closest('.bibtex');
+      var code = wrapper && wrapper.querySelector('code');
+      if (!code) return;
+      var text = code.textContent;
+      function done() {
+        btn.textContent = 'copied!';
+        setTimeout(function () { btn.textContent = 'copy'; }, 1200);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
       }
     });
   });

@@ -120,6 +120,20 @@
   /* ------------------------------------------------------------
    * Collapsible abstract + BibTeX blocks
    * ------------------------------------------------------------ */
+  function copyText(text, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+
   document.querySelectorAll('[data-bibtex], [data-abs]').forEach(function (link) {
     var id = link.getAttribute('data-bibtex') || link.getAttribute('data-abs');
     link.setAttribute('aria-controls', id);
@@ -127,9 +141,16 @@
     link.addEventListener('click', function (e) {
       e.preventDefault();
       var target = document.getElementById(id);
-      if (target) {
-        target.hidden = !target.hidden;
-        link.setAttribute('aria-expanded', String(!target.hidden));
+      if (!target) return;
+      target.hidden = !target.hidden;
+      link.setAttribute('aria-expanded', String(!target.hidden));
+      // "cite" also copies the bibtex to the clipboard on open
+      if (!target.hidden && link.hasAttribute('data-bibtex')) {
+        var code = target.querySelector('code');
+        if (code) copyText(code.textContent, function () {
+          link.textContent = 'copied!';
+          setTimeout(function () { link.textContent = 'cite'; }, 1200);
+        });
       }
     });
   });
@@ -142,22 +163,10 @@
       var wrapper = btn.closest('.bibtex');
       var code = wrapper && wrapper.querySelector('code');
       if (!code) return;
-      var text = code.textContent;
-      function done() {
+      copyText(code.textContent, function () {
         btn.textContent = 'copied!';
         setTimeout(function () { btn.textContent = 'copy'; }, 1200);
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(done, done);
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand('copy'); } catch (e) {}
-        document.body.removeChild(ta);
-        done();
-      }
+      });
     });
   });
 

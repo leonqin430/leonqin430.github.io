@@ -118,7 +118,7 @@
   }
 
   /* ------------------------------------------------------------
-   * Collapsible abstract + BibTeX blocks
+   * Collapsible BibTeX blocks
    * ------------------------------------------------------------ */
   function copyText(text, done) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -134,8 +134,8 @@
     }
   }
 
-  document.querySelectorAll('[data-bibtex], [data-abs]').forEach(function (link) {
-    var id = link.getAttribute('data-bibtex') || link.getAttribute('data-abs');
+  document.querySelectorAll('[data-bibtex]').forEach(function (link) {
+    var id = link.getAttribute('data-bibtex');
     link.setAttribute('aria-controls', id);
     link.setAttribute('aria-expanded', 'false');
     link.addEventListener('click', function (e) {
@@ -145,7 +145,7 @@
       target.hidden = !target.hidden;
       link.setAttribute('aria-expanded', String(!target.hidden));
       // "cite" also copies the bibtex to the clipboard on open
-      if (!target.hidden && link.hasAttribute('data-bibtex')) {
+      if (!target.hidden) {
         var code = target.querySelector('code');
         if (code) copyText(code.textContent, function () {
           link.textContent = 'copied!';

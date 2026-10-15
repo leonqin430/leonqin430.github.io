@@ -68,6 +68,8 @@ table.results.recipe th, table.results.recipe td { text-align: left; }
 
 /* floated figures/tables with text wrapping around them (wrapfigure / wraptable style) */
 .page-section { display: flow-root; }
+.wrapblock { display: flow-root; margin-bottom: 1em; }
+.wrapblock > p:last-child { margin-bottom: 0; }
 .wrap-right { float: right; clear: both; margin: 0.3em 0 1em 2em; }
 .wrap-left { float: left; clear: both; margin: 0.3em 2em 1em 0; }
 .wrap-right.fig, .wrap-left.fig { width: 46%; }

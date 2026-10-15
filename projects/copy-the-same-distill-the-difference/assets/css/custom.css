@@ -1,0 +1,114 @@
+/* Adapted from the ECHO project page (Nerfies/Bulma lineage): black-on-white, left-aligned, hairline separators */
+html { font-size: 12pt; scroll-behavior: smooth; }
+body { color: black; background: #fff; font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+.fullpage-line { margin: 1em 0; height: 1px; background-color: #ededed; border: none; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); }
+.header-line { margin: 1em 0; border-top: 1px solid #ededed; }
+.section-header { font-family: 'Roboto', sans-serif; color: black !important; margin-bottom: 0 !important; }
+.plain-header { margin-bottom: 0.5em !important; }
+.publication-title { line-height: 1.2; }
+.publication-authors .author-block { display: inline-block; margin-right: 0.6em; }
+.publication-authors a.plain-link, .publication-authors a.plain-link:hover { color: inherit; text-decoration: none; }
+.external-link { background-color: #36454F; color: white; margin: 6px; border-radius: 8px; box-shadow: 3px 3px 0px black; }
+.external-link.is-disabled { background-color: #9aa3ab; box-shadow: 3px 3px 0px #555; cursor: default; }
+.external-link:hover { color: white; background-color: #22303a; }
+.section { padding: 2rem 1.5rem; }
+.content p { text-align: left; line-height: 1.6; }
+.content .takeaway { border-left: 4px solid #2166ac; padding: 0.6em 1em; background: #f6f9fc; margin: 1em 0; }
+figure { margin: 1.2em 0; }
+figure img { width: 100%; height: auto; }
+figure figcaption { font-size: 0.9em; color: #333; margin-top: 0.5em; text-align: center; }
+.succ { color: #2166ac; font-weight: 600; }
+.fail { color: #d6604d; font-weight: 600; }
+table.results { border-collapse: collapse; margin: 0.8em auto; font-size: 0.92em; }
+table.results th, table.results td { padding: 0.35em 0.9em; text-align: center; border-bottom: 1px solid #e3e3e3; }
+table.results th { border-bottom: 2px solid #333; font-weight: 600; }
+table.results.compact th, table.results.compact td { white-space: nowrap; padding: 0.35em 0.6em; }
+.table-container { overflow-x: auto; max-width: 100%; }
+table.results td.delta-pos { color: #2166ac; }
+table.results td.delta-neg { color: #d6604d; }
+.table-caption { font-size: 0.9em; color: #333; text-align: center; margin-top: 0.3em; margin-bottom: 1.4em; }
+pre.bibtex { background: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 6px; padding: 1em; font-size: 0.85em; overflow-x: auto; white-space: pre; }
+.back-to-top { position: fixed; bottom: 24px; right: 24px; z-index: 1000; opacity: 0.7; transition: opacity 0.2s; }
+.back-to-top:hover { opacity: 1; }
+.nav-tabs { margin: 0.5em 0 1.5em 0; font-size: 0.95em; }
+.nav-tabs a { margin-right: 1.2em; color: #1a5fb4; }
+@media (max-width: 768px) { html { font-size: 11pt; } .carousel-control-prev, .carousel-control-next { display: none; } }
+/* Contents sidebar (ECHO-style), sub-headings, equations, footnotes */
+.toc { position: sticky; top: 1.5rem; }
+.toc-title { font-family: 'Roboto', sans-serif; font-weight: 700; color: black; padding: 0 0.75em; margin-bottom: 0.4em; }
+.toc .menu-list a { color: #4a4a4a; font-size: 0.88em; line-height: 1.3; padding: 0.35em 0.75em; border-left: 2px solid #e6e6e6; border-radius: 0; }
+.toc .menu-list a:hover { background: #f5f5f5; color: black; }
+.toc .menu-list a.is-active { color: black; font-weight: 600; border-left-color: #2166ac; background: #f6f9fc; }
+.page-section { margin-bottom: 2.5rem; }
+.content h3.sub-header { font-family: 'Roboto', sans-serif; color: black; margin-top: 1.4em; margin-bottom: 0.6em; }
+.content .eq { text-align: center; margin: 0.6em 0 1em; position: relative; font-size: 1.02em; }
+.content .eq .eqno { position: absolute; right: 0; color: #666; }
+.content .fnote { font-size: 0.82em; color: #555; border-left: 2px solid #e6e6e6; padding-left: 0.8em; }
+.content ol.contrib { margin-left: 1.4em; }
+.content ol.contrib li { margin-bottom: 0.5em; }
+.grayt { color: #888; font-weight: 400; }
+table.results td.not, table.results th.not { background: #e9e9e9; }
+table.results tr.gray td { color: #888; }
+table.results.recipe th, table.results.recipe td { text-align: left; }
+@media (max-width: 1023px) { .toc-column { display: none; } }
+@media (min-width: 1024px) { .nav-tabs { display: none; } }
+.content a.cite { color: inherit; border-bottom: 1px dotted #888; }
+.content a.cite:hover { color: #1a5fb4; border-bottom-color: #1a5fb4; }
+.content ol.refs { list-style: none; counter-reset: ref; margin-left: 0; padding-left: 2.2em; font-size: 0.95em; }
+.content ol.refs li { counter-increment: ref; position: relative; }
+.content ol.refs li::before { content: "[" counter(ref) "]"; position: absolute; left: -2.2em; }
+
+/* half-column tables: fit beside their paragraph */
+.wrap-right .table-container table.results.compact, .wrap-left .table-container table.results.compact { font-size: 0.78em; }
+.wrap-right .table-container table.results.compact, .wrap-left .table-container table.results.compact th, .column .table-container table.results.compact td { padding: 0.3em 0.35em; }
+.wrap-right .table-container { margin: 0; }
+.wrap-right .table-caption { margin-bottom: 0; }
+/* model-name colours in table headers (success = blue, failure = red), overriding Bulma's .content table th colour */
+.content table.results th.succ { color: #2166ac; }
+.content table.results th.fail { color: #d6604d; }
+
+/* floated figures/tables with text wrapping around them (wrapfigure / wraptable style) */
+.page-section { display: flow-root; }
+.wrapblock { display: flow-root; margin-bottom: 1em; }
+.wrapblock > p:last-child { margin-bottom: 0; }
+.wrap-right { float: right; clear: both; margin: 0.3em 0 1em 2em; }
+.wrap-left { float: left; clear: both; margin: 0.3em 2em 1em 0; }
+.wrap-right.fig, .wrap-left.fig { width: 46%; }
+.wrap-right.tbl, .wrap-left.tbl { width: min-content; max-width: 60%; }  /* float exactly as wide as its table; the caption wraps to it */
+.wrap-right figure, .wrap-left figure { margin: 0; }
+.wrap-right table.results, .wrap-left table.results { margin: 0 auto; }
+.page-section > figure, .page-section > .table-container, .content .takeaway, .content h3.sub-header { clear: both; }
+@media (max-width: 768px) { .wrap-right, .wrap-left, .wrap-right.fig, .wrap-left.fig, .wrap-right.tbl, .wrap-left.tbl { float: none; width: 100%; max-width: 100%; margin: 0.8em 0; } }
+/* paper-style rules: vertical rule after the MLP column (Table 3), cmidrule-style group headers (Table 4) */
+table.results th.vline, table.results td.vline { border-right: 1px solid #333; }
+table.results.qkv thead tr:first-child th { border-bottom: none; }
+table.results.qkv thead tr:first-child th.group { border-bottom: 1px solid #333; }
+/* numeric result tables: first (label) column left-aligned, numeric columns centered (lcccc) */
+table.results.compact th:first-child, table.results.compact td:first-child { text-align: left; }
+/* Bulma's .content table th:not([align]) { text-align: inherit } would left-align the headers; centre them over their columns */
+.content table.results th:not([align]), .content table.results td { text-align: center; vertical-align: middle; }
+.content table.results.compact th:first-child:not([align]), .content table.results.compact td:first-child { text-align: left; }
+.content table.results.recipe th:not([align]), .content table.results.recipe td { text-align: left; }
+/* tables whose LaTeX spec is all-centred (Tables 3 and 4): centre the first column too */
+.content table.results.allc th:first-child:not([align]), .content table.results.allc td:first-child { text-align: center; }
+/* Bulma's .content table { width: 100% } would stretch short tables (5, 7, 8) across the float; size them to their content */
+.content table.results { width: auto; }
+/* the caption must not widen a floated table: give it zero intrinsic width and stretch it to the table's width */
+.wrap-right.tbl .table-caption, .wrap-left.tbl .table-caption { width: 0; min-width: 100%; }
+
+/* bullet list of related methods */
+.content ul.refs-list { margin-left: 1.4em; }
+.content ul.refs-list li { margin-bottom: 0.5em; }
+
+/* references numbered as [n] */
+.content ol.refs { list-style: none; counter-reset: ref; margin-left: 0; }
+.content ol.refs li { counter-increment: ref; position: relative; padding-left: 2.4em; margin-bottom: 0.45em; }
+.content ol.refs li::before { content: "[" counter(ref) "]"; position: absolute; left: 0; color: #444; }
+
+/* side-by-side table pair: content-width compact tables, captions aligned on one line */
+.content .tab-pair { margin-top: 0.4em; margin-bottom: 0.6em; }
+.content .tab-pair .column { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.content .tab-pair .table-container { margin: 0; max-width: 100%; }
+.content .tab-pair table.results.compact { width: auto; font-size: 0.78em; margin: 0 auto; }
+.content .tab-pair table.results.compact th, .content .tab-pair table.results.compact td { padding: 0.3em 0.45em; }
+.content .tab-pair .table-caption { margin-top: 0.5em; margin-bottom: 0; }

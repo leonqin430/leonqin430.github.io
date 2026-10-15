@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Beyond Instance Consistency (TMLR 2025): strict instance consistency is not essential for effective self-supervised learning; moderate view diversity, measured by Earth Mover's Distance, correlates with improved SSL.">
+  <title>Beyond Instance Consistency: Investigating View Diversity in Self-supervised Learning</title>
+  <link rel="canonical" href="https://leonqin430.github.io/projects/beyond-instance-consistency/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Beyond Instance Consistency: Investigating View Diversity in Self-supervised Learning">
+  <meta property="og:description" content="TMLR 2025. SSL learns meaningful representations even when positive pairs lack strict instance consistency; more view diversity helps up to an optimal range, which Earth Mover's Distance quantifies.">
+  <meta property="og:url" content="https://leonqin430.github.io/projects/beyond-instance-consistency/">
+  <meta property="og:image" content="https://leonqin430.github.io/projects/beyond-instance-consistency/assets/images/fig_overview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/custom.css">
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-body" style="padding: 5rem 1.5rem 0.5rem 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h1 class="title is-size-2 publication-title section-header" style="padding-bottom: 0.3em;">
+            Beyond Instance Consistency:<br>Investigating View Diversity in <span style="white-space: nowrap;">Self-supervised</span> Learning
+          </h1>
+          <div class="is-size-5 publication-authors">
+            Strict <em>instance consistency</em> is not essential for effective SSL
+          </div>
+          <div class="fullpage-line" style="margin-bottom: 1.5em;"></div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><a href="https://leonqin430.github.io/" class="plain-link">Huaiyuan Qin</a><sup>1</sup></span>
+            <span class="author-block">Muli Yang<sup>1</sup></span>
+            <span class="author-block">Siyuan Hu<sup>2</sup></span>
+            <span class="author-block">Peng Hu<sup>3</sup></span>
+            <span class="author-block">Yu Zhang<sup>4</sup></span>
+            <span class="author-block">Chen Gong<sup>5</sup></span>
+            <span class="author-block">Hongyuan Zhu<sup>1&#9993;</sup></span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Institute for Infocomm Research (I<sup>2</sup>R), A*STAR, Singapore</span><br>
+            <span class="author-block"><sup>2</sup>National University of Singapore</span>
+            <span class="author-block"><sup>3</sup>Sichuan University</span><br>
+            <span class="author-block"><sup>4</sup>Southeast University</span>
+            <span class="author-block"><sup>5</sup>Shanghai Jiao Tong University</span>
+          </div>
+          <div class="is-size-7 publication-authors" style="margin-top: 10px;">
+            <span class="author-block"><sup>&#9993;</sup>Corresponding author</span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><strong>TMLR 2025</strong></span>
+          </div>
+          <br>
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2509.11344" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2509.11344" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg></span><span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/leonqin430/beyond-instance-consistency" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><span>Code</span>
+              </a>
+            </span>
+          </div>
+          <div class="fullpage-line" style="margin-top: 1.5em;"></div>
+
+          <div class="nav-tabs">
+            <a href="#abstract">Abstract</a>
+            <a href="#what-is">What is Instance Consistency?</a>
+            <a href="#instance-consistency">Consistency Levels</a>
+            <a href="#view-diversity">View Diversity</a>
+            <a href="#emd">EMD Estimator</a>
+            <a href="#bibtex">BibTeX</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+<section class="section" style="padding-top: 0.5rem;">
+  <div class="container" style="max-width: 1280px;">
+    <div class="columns">
+      <div class="column is-one-fifth toc-column">
+        <aside class="menu toc">
+          <p class="toc-title">Contents</p>
+          <ul class="menu-list">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#what-is">What is Instance Consistency?</a></li>
+            <li><a href="#instance-consistency">How Does SSL React to Different Levels of Instance Consistency?</a></li>
+            <li><a href="#view-diversity">How Much View Diversity is Beneficial?</a></li>
+            <li><a href="#emd">Earth Mover&rsquo;s Distance as Diversity Estimator</a></li>
+            <li><a href="#bibtex">BibTeX</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="column is-four-fifths content page-body" style="max-width: 768px;">
+<section class="page-section"><figure><img src="./assets/images/fig_teaser.jpg" alt="Figure 1"><figcaption><strong>Figure 1. Visualization of random crops on <em>iconic</em> data (<em>e.g.</em> ImageNet) and <em>non-iconic</em> data (<em>e.g.</em> COCO).</strong></figcaption></figure></section>
+<section class="page-section"><h2 id="abstract" class="title is-3 section-header">Abstract</h2><div class="header-line"></div><p>Self-supervised learning (SSL) conventionally relies on the instance consistency paradigm, assuming that different views of the same image can be treated as positive pairs. However, this assumption breaks down for non-iconic data, where different views may contain distinct objects or semantic information. In this paper, we investigate the effectiveness of SSL when instance consistency is not guaranteed. Through extensive ablation studies, we demonstrate that SSL can still learn meaningful representations even when positive pairs lack strict instance consistency. Furthermore, our analysis further reveals that increasing view diversity, by enforcing zero overlapping or using smaller crop scales, can enhance downstream performance on classification and dense prediction tasks. However, excessive diversity is found to reduce effectiveness, suggesting an optimal range for view diversity. To quantify this, we adopt the Earth Mover&rsquo;s Distance (EMD) as an estimator to measure mutual information between views, finding that moderate EMD values correlate with improved SSL learning, providing insights for future SSL framework design. We validate our findings across a range of settings, highlighting their robustness and applicability on diverse data sources.</p></section>
+<section class="page-section"><h2 id="what-is" class="title is-3 section-header">What is Instance Consistency?</h2><div class="header-line"></div><p>SSL aligns different views of the same image, relying on the <em>instance consistency</em> paradigm, which considers each image as a separate class: different augmentations of an image are treated as positive pairs, while augmentations from other images serve as negatives.</p><p>This paradigm works remarkably well for <em>iconic</em> datasets, where images typically feature a single, dominant object. In contrast, <em>non-iconic</em> datasets, such as COCO and OpenImages, often feature complex scenes with multiple objects and diverse backgrounds, so two augmented views from the same image may not contain the same object or share consistent semantic information (Figure 1). Surprisingly, despite the breakdown of instance consistency on non-iconic data, SSL methods can still achieve competitive performance, raising a critical research question: <strong>Is instance consistency a strict requirement for self-supervised learning?</strong></p></section>
+<section class="page-section"><h2 id="instance-consistency" class="title is-3 section-header">How Does SSL React to Different Levels of Instance Consistency?</h2><div class="header-line"></div><p>We conduct ablation experiments with MoCo-v2 and DINO, systematically varying the shared instance semantics between the positive pair (<b>v</b><sub>1</sub>, <b>v</b><sub>2</sub>). Given target instances with ground-truth bounding boxes, we introduce five configurations (Figure 2):</p><ol class="configs"><li><strong><em>Completely Random Crop</em></strong> (<strong><em>Baseline</em></strong>). Two views are randomly cropped from the same image without any spatial constraint, the default setup in MoCo-v2 and DINO.</li><li><strong><em>Zero Spatial Overlap.</em></strong> Views are sampled with no spatial overlap.</li><li><strong><em>Instance vs Bg.</em></strong> <b>v</b><sub>1</sub> is sampled around a foreground instance, while <b>v</b><sub>2</sub> contains only background information.</li><li><strong><em>Only Bg.</em></strong> Two views are sampled purely from background regions.</li><li><strong><em>Lower Bound.</em></strong> Each view is sampled from entirely different images.</li></ol><figure><img src="./assets/images/fig_overview.jpg" alt="Figure 2"><figcaption><strong>Figure 2. Overview of positive pairs from different configurations.</strong></figcaption></figure><div class="table-container"><table class="results compact qkv wide"><thead><tr><th rowspan="2" class="vline">Config</th><th colspan="5" class="vline">COCO</th><th colspan="5">ImageNet-100</th></tr><tr><th>CIFAR-10</th><th>CIFAR-100</th><th>DTD</th><th>Pets</th><th class="vline">STL-10</th><th>CIFAR-10</th><th>CIFAR-100</th><th>DTD</th><th>Pets</th><th>STL-10</th></tr></thead><tbody><tr><td class="vline">Baseline</td><td>70.90</td><td>47.03</td><td>38.40</td><td>38.40</td><td class="vline">71.84</td><td>71.85</td><td>48.24</td><td>39.26</td><td>43.85</td><td>75.31</td></tr><tr class="rb"><td class="vline">Lower Bound</td><td>32.72<sup class="gn">&minus;38.18</sup></td><td>12.40<sup class="gn">&minus;34.63</sup></td><td>7.29<sup class="gn">&minus;31.11</sup></td><td>7.28<sup class="gn">&minus;31.12</sup></td><td class="vline">27.59<sup class="gn">&minus;44.25</sup></td><td>32.64<sup class="gn">&minus;39.12</sup></td><td>12.22<sup class="gn">&minus;36.02</sup></td><td>6.65<sup class="gn">&minus;32.61</sup></td><td>7.09<sup class="gn">&minus;36.76</sup></td><td>28.36<sup class="gn">&minus;46.95</sup></td></tr><tr><td class="vline">Spatial Ovlp. = 0</td><td>71.75<sup class="gp">+0.85</sup></td><td>48.45<sup class="gp">+1.42</sup></td><td>41.65<sup class="gp">+3.25</sup></td><td>39.53<sup class="gp">+1.13</sup></td><td class="vline">74.42<sup class="gp">+2.58</sup></td><td>74.72<sup class="gp">+2.87</sup></td><td>51.95<sup class="gp">+3.71</sup></td><td>46.01<sup class="gp">+6.75</sup></td><td>46.70<sup class="gp">+2.85</sup></td><td>76.69<sup class="gp">+1.38</sup></td></tr><tr><td class="vline">Inst. <em>vs</em> Bg</td><td>76.20<sup class="gp">+5.30</sup></td><td>54.79<sup class="gp">+7.76</sup></td><td>41.12<sup class="gp">+2.72</sup></td><td>40.90<sup class="gp">+2.50</sup></td><td class="vline">74.75<sup class="gp">+2.91</sup></td><td>75.71<sup class="gp">+3.86</sup></td><td>53.21<sup class="gp">+4.97</sup></td><td>42.77<sup class="gp">+3.51</sup></td><td>45.11<sup class="gp">+1.26</sup></td><td>77.38<sup class="gp">+2.07</sup></td></tr><tr class="rb"><td class="vline">Only Bg</td><td>72.13<sup class="gp">+1.23</sup></td><td>49.47<sup class="gp">+2.44</sup></td><td>41.91<sup class="gp">+3.51</sup></td><td>39.20<sup class="gp">+0.80</sup></td><td class="vline">73.91<sup class="gp">+2.07</sup></td><td>73.73<sup class="gp">+1.88</sup></td><td>50.62<sup class="gp">+2.38</sup></td><td>43.40<sup class="gp">+4.14</sup></td><td>45.03<sup class="gp">+1.18</sup></td><td>76.56<sup class="gp">+1.25</sup></td></tr><tr><td class="vline">Larger Crop</td><td>67.02<sup class="gn">&minus;3.88</sup></td><td>43.64<sup class="gn">&minus;3.39</sup></td><td>33.24<sup class="gn">&minus;5.16</sup></td><td>29.05<sup class="gn">&minus;9.35</sup></td><td class="vline">69.99<sup class="gn">&minus;1.85</sup></td><td>66.72<sup class="gn">&minus;5.13</sup></td><td>42.15<sup class="gn">&minus;6.09</sup></td><td>34.63<sup class="gn">&minus;4.63</sup></td><td>36.33<sup class="gn">&minus;7.52</sup></td><td>72.94<sup class="gn">&minus;2.37</sup></td></tr><tr><td class="vline">Smaller Crop</td><td>71.36<sup class="gp">+0.46</sup></td><td>48.28<sup class="gp">+1.25</sup></td><td>41.76<sup class="gp">+3.36</sup></td><td>39.81<sup class="gp">+1.41</sup></td><td class="vline">73.69<sup class="gp">+1.85</sup></td><td>74.97<sup class="gp">+3.12</sup></td><td>51.59<sup class="gp">+3.35</sup></td><td>44.63<sup class="gp">+5.37</sup></td><td>45.90<sup class="gp">+2.05</sup></td><td>76.92<sup class="gp">+1.61</sup></td></tr><tr><td class="vline">Smaller Crop<sup>&dagger;</sup></td><td>70.34<sup class="g0">&minus;0.56</sup></td><td>47.26<sup class="g0">+0.23</sup></td><td>40.43<sup class="g0">+2.03</sup></td><td>36.44<sup class="g0">&minus;1.96</sup></td><td class="vline">72.26<sup class="g0">+0.42</sup></td><td>67.72<sup class="g0">&minus;4.13</sup></td><td>50.21<sup class="g0">+1.97</sup></td><td>40.96<sup class="g0">+1.70</sup></td><td>40.37<sup class="g0">&minus;3.48</sup></td><td>75.65<sup class="g0">+0.34</sup></td></tr></tbody></table></div><div class="table-caption"><strong>Table 1. Classification results with MoCo-v2 pre-trained on COCO and ImageNet-100.</strong></div><div class="table-container"><table class="results compact qkv wide"><thead><tr><th rowspan="2" class="vline">Config</th><th colspan="2" class="vline">COCO</th><th colspan="2">ImageNet-100</th></tr><tr><th>VOC-0712</th><th class="vline">DOTA-v1.0</th><th>VOC-0712</th><th>DOTA-v1.0</th></tr></thead><tbody><tr class="gray"><td class="vline">random init.</td><td>53.58</td><td class="vline">31.59</td><td>53.38</td><td>31.59</td></tr><tr class="rb"><td class="vline">Lower Bound</td><td>70.54<sup class="gn">&minus;2.78</sup></td><td class="vline">47.94<sup class="gn">&minus;6.44</sup></td><td>69.97<sup class="gn">&minus;3.94</sup></td><td>48.96<sup class="gn">&minus;6.34</sup></td></tr><tr><td class="vline">Baseline</td><td>73.32</td><td class="vline">54.38</td><td>73.91</td><td>55.30</td></tr><tr><td class="vline">Spatial Ovlp. = 0</td><td>74.55<sup class="gp">+1.23</sup></td><td class="vline">55.84<sup class="gp">+1.46</sup></td><td>74.87<sup class="gp">+0.96</sup></td><td>56.23<sup class="gp">+0.93</sup></td></tr><tr><td class="vline">Inst. <em>vs</em> Bg</td><td>74.15<sup class="gp">+0.83</sup></td><td class="vline">55.47<sup class="gp">+1.09</sup></td><td>74.35<sup class="gp">+0.44</sup></td><td>56.65<sup class="gp">+1.35</sup></td></tr><tr class="rb"><td class="vline">Only Bg</td><td>74.73<sup class="gp">+1.41</sup></td><td class="vline">55.34<sup class="gp">+0.96</sup></td><td>74.43<sup class="gp">+0.52</sup></td><td>56.65<sup class="gp">+1.35</sup></td></tr><tr><td class="vline">Larger Crop</td><td>72.14<sup class="gn">&minus;1.18</sup></td><td class="vline">52.09<sup class="gn">&minus;2.29</sup></td><td>73.40<sup class="gn">&minus;0.51</sup></td><td>54.06<sup class="gn">&minus;1.24</sup></td></tr><tr><td class="vline">Smaller Crop</td><td>74.58<sup class="gp">+1.26</sup></td><td class="vline">55.52<sup class="gp">+1.14</sup></td><td>74.49<sup class="gp">+0.58</sup></td><td>56.26<sup class="gp">+0.96</sup></td></tr><tr><td class="vline">Smaller Crop<sup>&dagger;</sup></td><td>73.90<sup class="g0">+0.58</sup></td><td class="vline">54.68<sup class="g0">+0.30</sup></td><td>74.09<sup class="g0">+0.18</sup></td><td>55.63<sup class="g0">+0.33</sup></td></tr></tbody></table></div><div class="table-caption"><strong>Table 2. Object detection results with MoCo-v2 pre-trained on COCO and ImageNet-100.</strong></div><p><strong>Results.</strong> As expected, the <em>Lower Bound</em> yields the lowest performance, highlighting the importance of shared information between positive pairs. Surprisingly, all other configurations (<em>Zero Spatial Overlap</em>, <em>Instance vs Bg</em>, and <em>Only Bg</em>) outperform the baseline in classification (Table 1) and object detection (Table 2). This suggests that SSL is capable of leveraging broader contextual cues beyond instance consistency, including shared background patterns, consistent camera viewpoints, and general color style, as long as both views are sampled from the same image.</p><div class="takeaway">In contrast to prior beliefs of instance consistency, SSL can learn meaningful representations even when positive pairs contain minimal shared instance semantics.</div></section>
+<section class="page-section"><h2 id="view-diversity" class="title is-3 section-header">How Much View Diversity is Beneficial?</h2><div class="header-line"></div><p>While these configurations reduce the instance consistency, they simultaneously increase diversity between positive pairs, yet still serve as a valid, and even better supervision signal. We regulate this diversity by varying crop scales:</p><ol class="configs"><li><strong><em>Smaller Crop.</em></strong> A smaller crop scale minimizes shared information to increase diversity between positive pairs.</li><li><strong><em>Larger Crop.</em></strong> Larger crop scales preserve more shared information, thereby reducing the diversity.</li><li><strong><em>Smaller Crop with Zero Spatial Overlap</em></strong> (Smaller Crop<sup>&dagger;</sup> in Tables 1 and 2). Combining both maximizes the diversity.</li></ol><p><strong>Results.</strong> <em>Smaller Crop</em> consistently outperforms the baseline, whereas <em>Larger Crop</em> leads to a significant performance drop, suggesting that excessive redundancy between views can hinder SSL effectiveness. Interestingly, while <em>Smaller Crop</em> and <em>Zero Spatial Overlap</em> individually boost performance, their combination does not yield additional gains and instead results in a slight performance drop.</p><div class="takeaway">Increasing the diversity in positive pairs encourages the discovery of more fine-grained visual consistencies in SSL, thus enhancing downstream performance. However, excessive diversity may degrade SSL&rsquo;s effectiveness.</div></section>
+<section class="page-section"><h2 id="emd" class="title is-3 section-header">Earth Mover&rsquo;s Distance as Diversity Estimator</h2><div class="header-line"></div><div class="wrapblock"><div class="wrap-left fig"><figure><img src="./assets/images/fig_emd.jpg" alt="Figure 3"><figcaption><strong>Figure 3. Two strategies for EMD-based similarity score.</strong></figcaption></figure></div><p>To quantify this diversity, we adopt Earth Mover&rsquo;s Distance (EMD) as an estimator to measure the shared information between positive pairs, which provides an estimation of augmentation quality before model pre-training.</p><p><strong>Implementations.</strong> Following <a href="#ref-deepemd" class="cite">Zhang et al. (2020)</a>, we extract the features of patches of the two views with a pre-trained ResNet-50, using two strategies (Figure 3): <em>grid-based</em>, where each view is divided into uniform grids with grid factors of 2 and 3, and <em>sampling-based</em>, where each view is randomly sampled into 9 patches of varying sizes and aspect ratios.</p></div><p><strong>Results.</strong> Figure 4 reveals a clear reverse-U relationship between the EMD score and downstream accuracy. Configurations with moderate EMD scores (ranging from 3 to 4) consistently yield the highest performance, while very high (above 5) or very low EMD scores (below 2) exhibit a drop in downstream accuracy, indicating that extreme overlap or excessive diversity between views can hinder SSL&rsquo;s ability to learn meaningful feature representations.</p><div class="takeaway">Earth Mover&rsquo;s Distance (EMD) effectively quantifies mutual information between positive pairs, making it a predictive measure of view diversity for effective SSL.</div><figure><div class="subfig"><img src="./assets/images/fig_emd_plot_moco_det.png" alt="Figure 4(a)"><div class="subfig-label">(a) Detection, MoCo-v2</div></div><div class="subfig"><img src="./assets/images/fig_emd_plot_moco_cls.png" alt="Figure 4(b)"><div class="subfig-label">(b) Classification, MoCo-v2</div></div><div class="subfig"><img src="./assets/images/fig_emd_plot_dino_det.png" alt="Figure 4(c)"><div class="subfig-label">(c) Detection, DINO</div></div><div class="subfig"><img src="./assets/images/fig_emd_plot_dino_cls.png" alt="Figure 4(d)"><div class="subfig-label">(d) Classification, DINO</div></div><figcaption><strong>Figure 4. EMD similarity versus detection and classification accuracy with MoCo-v2 and DINO pre-trained on COCO.</strong></figcaption></figure><p class="fnote">EMD scores in Figure 4 are scaled by 10 for better visualization.</p><p><strong>Suggestions for Positive Pair Selection.</strong> Our results suggest pre-calculating EMD scores before pre-training: the optimal EMD range lies between the baseline score (upper bound) and that of Smaller Crop<sup>&dagger;</sup> (lower bound).</p><div class="takeaway">Our validation experiments confirm the generalizability of our findings across a range of settings, while highlighting the adaptability of the proposed EMD diversity estimator on various data sources.</div></section>
+<section class="page-section"><h2 id="bibtex" class="title is-4 section-header plain-header">BibTeX</h2><pre class="bibtex">@article{qin2025beyond,
+  title   = {Beyond Instance Consistency: Investigating View
+             Diversity in Self-supervised Learning},
+  author  = {Qin, Huaiyuan and Yang, Muli and Hu, Siyuan and Hu, Peng and
+             Zhang, Yu and Gong, Chen and Zhu, Hongyuan},
+  journal = {Transactions on Machine Learning Research},
+  issn    = {2835-8856},
+  year    = {2025},
+  url     = {https://openreview.net/forum?id=urWCU3YMA0}
+}</pre><h2 class="title is-4 section-header plain-header" style="margin-top: 1.5em;">Acknowledgements</h2>
+      <p>This research is supported by the EDB Space Technology Development Programme under Project S22-19016-STDP and the National Natural Science Foundation of China under Grant 62576089. The authors sincerely thank the Reviewers and Action Editor for their valuable and constructive feedback.</p>
+      <p>This page is adapted from the <a href="https://echo-bench.github.io/" target="_blank">ECHO</a> project page, itself built on the <a href="https://nerfies.github.io/" target="_blank">Nerfies</a> template.</p><h2 id="references" class="title is-4 section-header plain-header" style="margin-top: 1.5em;">References</h2><ol class="refs"><li id="ref-deepemd">Chi Zhang, Yujun Cai, Guosheng Lin, and Chunhua Shen. <a href="https://arxiv.org/abs/2003.06777" target="_blank">DeepEMD: Few-Shot Image Classification with Differentiable Earth Mover&rsquo;s Distance and Structured Classifiers</a>. <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2020.</li></ol></section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="back-to-top button is-dark is-small" title="Back to top"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></span></a>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  if (!links.length) return;
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var current = -1;
+  function update() {
+    var y = window.pageYOffset + 140, best = 0;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top + window.pageYOffset <= y) best = i;
+    }
+    if (best !== current) {
+      current = best;
+      links.forEach(function (a, i) { a.classList.toggle('is-active', i === best); });
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>

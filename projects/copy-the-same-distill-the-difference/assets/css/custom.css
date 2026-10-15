@@ -112,3 +112,10 @@ table.results.compact th:first-child, table.results.compact td:first-child { tex
 .content .tab-pair table.results.compact { width: auto; font-size: 0.78em; margin: 0 auto; }
 .content .tab-pair table.results.compact th, .content .tab-pair table.results.compact td { padding: 0.3em 0.45em; }
 .content .tab-pair .table-caption { margin-top: 0.5em; margin-bottom: 0; }
+
+/* equations: vector crops of the paper PDF (1em = 10pt of the paper), equation number vertically centred */
+.content .eq { padding: 0 2.4em; }
+.content .eq .eqno { top: 50%; transform: translateY(-50%); }
+.content .eq img.eqimg { max-width: 100%; height: auto; vertical-align: middle; }
+.content .eq img.eq1 { width: 15.46em; }
+.content .eq img.eq2 { width: 14.49em; }

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Attention Transfer Is Not Universally Effective for Vision Transformers (NeurIPS 2026): attention is sufficient only when the student architecture matches the teacher.">
+  <title>Attention Transfer Is Not Universally Effective for Vision Transformers</title>
+  <link rel="canonical" href="https://leonqin430.github.io/projects/attention-transfer-universally/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Attention Transfer Is Not Universally Effective for Vision Transformers">
+  <meta property="og:description" content="NeurIPS 2026. Attention Transfer fails for 4 of 11 ViT families; architectural mismatch is the cause, and restoring the teacher-native components reverses every failure.">
+  <meta property="og:url" content="https://leonqin430.github.io/projects/attention-transfer-universally/">
+  <meta property="og:image" content="https://leonqin430.github.io/projects/attention-transfer-universally/assets/images/fig_main.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/custom.css">
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-body" style="padding: 5rem 1.5rem 0.5rem 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h1 class="title is-size-2 publication-title section-header" style="padding-bottom: 0.3em;">
+            Attention Transfer Is Not Universally Effective for Vision Transformers
+          </h1>
+          <div class="is-size-5 publication-authors">
+            Attention is sufficient <em>only</em> when the student architecture matches the teacher
+          </div>
+          <div class="fullpage-line" style="margin-bottom: 1.5em;"></div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">Huaiyuan Qin<sup>1</sup></span>
+            <span class="author-block">Muli Yang<sup>1</sup></span>
+            <span class="author-block">Gabriel James Goenawan<sup>1&dagger;</sup></span>
+            <span class="author-block">Peng Hu<sup>2</sup></span>
+            <span class="author-block">Chen Gong<sup>3</sup></span>
+            <span class="author-block">Xi Peng<sup>2</sup></span>
+            <span class="author-block">Hongyuan Zhu<sup>1&#9993;</sup></span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Institute of Advanced Intelligence and Computing (IAIC), A*STAR, Singapore</span><br>
+            <span class="author-block"><sup>2</sup>School of Artificial Intelligence, Sichuan University</span>
+            <span class="author-block"><sup>3</sup>School of Automation and Intelligent Sensing, Shanghai Jiao Tong University</span>
+          </div>
+          <div class="is-size-7 publication-authors" style="margin-top: 10px;">
+            <span class="author-block"><sup>&dagger;</sup>Work done while at A*STAR &nbsp; <sup>&#9993;</sup>Corresponding author</span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><strong>NeurIPS 2026</strong></span>
+          </div>
+          <br>
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2605.07191" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2605.07191" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg></span><span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a class="external-link button is-normal is-dark is-disabled" title="Code release coming soon">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><span>Code (coming soon)</span>
+              </a>
+            </span>
+          </div>
+          <div class="fullpage-line" style="margin-top: 1.5em;"></div>
+
+          <div class="nav-tabs">
+            <a href="#abstract">Abstract</a>
+            <a href="#what-is-at">What is Attention Transfer?</a>
+            <a href="#main-results">Not Universally Effective</a>
+            <a href="#localize">Localizing the Failure</a>
+            <a href="#rescue">Architectural Compatibility</a>
+            <a href="#alternatives">Alternative Explanations</a>
+            <a href="#bibtex">BibTeX</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEASER ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+<section class="section" style="padding-top: 0.5rem;">
+  <div class="container" style="max-width: 1280px;">
+    <div class="columns">
+      <div class="column is-one-fifth toc-column">
+        <aside class="menu toc">
+          <p class="toc-title">Contents</p>
+          <ul class="menu-list">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#what-is-at">What is Attention Transfer?</a></li>
+            <li><a href="#main-results">Attention Transfer Is Not Universally Effective</a></li>
+            <li><a href="#localize">Localizing the Failure</a></li>
+            <li><a href="#rescue">Architectural Compatibility Is the Key</a></li>
+            <li><a href="#alternatives">Ruling Out Alternative Explanations</a></li>
+            <li><a href="#bibtex">BibTeX</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="column is-four-fifths content page-body" style="max-width: 768px;">
+<section class="page-section"><figure><img src="./assets/images/fig_main.png" alt="Figure 1"><figcaption><strong>Figure 1. Attention Transfer is not universally effective.</strong></figcaption></figure></section>
+<section class="page-section"><h2 id="abstract" class="title is-3 section-header">Abstract</h2><div class="header-line"></div><p>A recent work shows that Attention Transfer, which transfers only the attention patterns from a pre-trained teacher Vision Transformer (ViT) to a randomly initialized standard student ViT, is sufficient to recover the full benefit of the teacher's pre-trained weights. We revisit this finding on a comprehensive benchmark of 20 teachers from 11 well-known ViT families and reveal that Attention Transfer is not universally effective. While 7 families transfer successfully, 4 consistently fail, falling up to 5.1% below the from-scratch no-transfer baseline. Further results demonstrate that this failure is family-consistent across model sizes, and persists under extended training durations, different transfer datasets, and out-of-distribution evaluations. Controlled analyses then consistently localize the problem to the attention-routing channel, indicating that the key issue is not whether the student can match the teacher's attention patterns, but whether the matched patterns remain functional for the student. Crucially, we identify architectural mismatch between the pre-trained teacher and the standard student as the primary mechanism. By adding only the teacher's native architectural components to the student in a randomly initialized state, we completely reverse the failure for all 4 families. Notably, these components alone do not improve from-scratch training, confirming that they specifically unlock the usability of the teacher's attention. We further show that this failure is not explained by the inadequate choice of transfer loss, differences in pre-training recipes, or the intrinsic quality of attention maps. Our findings refine the prevailing understanding of attention in ViT representations: attention is sufficient <em>only</em> when the student architecture matches the teacher.</p></section>
+<section class="page-section"><h2 id="what-is-at" class="title is-3 section-header">What is Attention Transfer?</h2><div class="header-line"></div><p>Following <a href="#ref-li2024" class="cite">Li et al. (2024)</a>, we study <em>Attention Transfer</em>, where a randomly initialized student Vision Transformer (ViT) is trained to inherit the full benefit of a pre-trained teacher without loading the teacher’s full pre-trained weights. We study two forms of Attention Transfer from a pre-trained teacher ViT to a standard student of the same size: <strong><em>Attention Copy</em></strong>, which directly copies the teacher’s attention projection weights and keeps them frozen; and <strong><em>Attention Distillation</em></strong>, which trains the student to match the teacher’s attention patterns through an auxiliary transfer objective.</p><figure><img src="./assets/images/fig_attention_transfer_li2024.png" alt="Attention Copy and Attention Distillation"><figcaption><strong>Attention Copy (left) and Attention Distillation (right).</strong> Figure from <a href="#ref-li2024" class="cite">Li et al. (2024)</a>.</figcaption></figure><p><strong>Model Zoo.</strong> We revisit Attention Transfer on a comprehensive model zoo which consists of 20 pre-trained weights from 11 well-known ViT families, including DeiT, DINO, MoCov3, MAE, iBOT, SigLIP2, SAM, DINOv2, DINOv2-wr, CLIP, and BEiTv2, spanning three model sizes: Tiny, Small, and Base. All Attention Transfer experiments are conducted on ImageNet-1K classification with the default protocol in <a href="#ref-li2024" class="cite">Li et al. (2024)</a> using the standard teacher-student architecture. All reported results are averaged over 3 random seeds.</p><p><strong>No-Transfer Baseline.</strong> As a primary reference, we define the <em>No-Transfer</em> (NoT) baseline, where the same standard ViT is randomly initialized and trained from scratch for 20 epochs. Attention Transfer from one given pre-trained weights is considered a “failure” when the final accuracy falls below this baseline, indicating that imposing attention patterns from the teacher is less effective than learning from scratch under the same student architecture.</p></section>
+<section class="page-section"><h2 id="main-results" class="title is-3 section-header">Attention Transfer Is Not Universally Effective</h2><div class="header-line"></div><p>The results reveal a clear family-dependent split, and this split boundary is consistent across model sizes rather than driven by isolated pre-trained weights. Specifically, 7 families, including DeiT, DINO, MoCov3, MAE, iBOT, SigLIP2, and SAM, improve over the No-Transfer baseline, with gains reaching 13.9% for DeiT-T under Attention Copy. In contrast, 4 families: DINOv2, DINOv2-wr, CLIP, and BEiTv2, consistently fall into the failure region. The worst case is DINOv2-wr-B, which underperforms the No-Transfer baseline by 5.1% under Attention Copy. Notably, all teachers evaluated in <a href="#ref-li2024" class="cite">Li et al. (2024)</a> belong exclusively to our success group, while the failure families are absent from their evaluations.</p><div class="wrap-left fig"><figure><img src="./assets/images/fig_100ep_gap.png" alt="Figure 2"><figcaption><strong>Figure 2. Extended training robustness.</strong></figcaption></figure></div><p><strong>Extended Training Robustness.</strong> A natural counter-hypothesis is that the failure families might suffer from slower convergence under the transferred attention patterns. We extend the training schedule from 20 to 100 epochs for both the success and failure families. The performance gap persists throughout the entire extended learning process. While successful families maintain strong positive gains over the No-Transfer baseline, the failure families remain consistently negative even with substantially longer training.</p><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th></th><th class="not">NoT</th><th class="succ">DeiT</th><th class="succ">DINO</th><th class="fail">DINOv2</th><th class="fail">DINOv2-wr</th></tr></thead><tbody><tr class="gray"><td>IN-1K</td><td class="not">63.1</td><td>75.6 <small class="succ">+12.4</small></td><td>75.1 <small class="succ">+12.0</small></td><td>61.7 <small class="fail">&minus;1.5</small></td><td>62.2 <small class="fail">&minus;0.9</small></td></tr><tr><td>iNat 2017</td><td class="not">26.6</td><td>44.7 <small class="succ">+18.1</small></td><td>46.0 <small class="succ">+19.4</small></td><td>24.4 <small class="fail">&minus;2.2</small></td><td>24.5 <small class="fail">&minus;2.1</small></td></tr><tr><td>iNat 2018</td><td class="not">35.0</td><td>50.2 <small class="succ">+15.2</small></td><td>51.2 <small class="succ">+16.3</small></td><td>33.1 <small class="fail">&minus;1.9</small></td><td>33.8 <small class="fail">&minus;1.2</small></td></tr><tr><td>iNat 2019</td><td class="not">40.1</td><td>56.8 <small class="succ">+16.7</small></td><td>55.7 <small class="succ">+15.5</small></td><td>38.1 <small class="fail">&minus;2.1</small></td><td>38.7 <small class="fail">&minus;1.4</small></td></tr></tbody></table></div><div class="table-caption"><strong>Table 1. Dataset robustness.</strong></div></div><p><strong>Dataset Robustness.</strong> We then test whether the observed failure is merely an artifact of the ImageNet-1K transfer dataset. Table 1 reports the performance of Attention Distillation on three fine-grained iNaturalist variants under the standard 20-epoch protocol. The same success/failure split appears consistently across all three year splits, matching the ImageNet-1K results.</p><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th></th><th class="not">NoT</th><th class="succ">DeiT</th><th class="succ">DINO</th><th class="fail">DINOv2</th><th class="fail">DINOv2-wr</th></tr></thead><tbody><tr><td>IN-A</td><td class="not">9.2</td><td>17.6 <small class="succ">+8.4</small></td><td>17.2 <small class="succ">+8.0</small></td><td>6.0 <small class="fail">&minus;3.2</small></td><td>5.8 <small class="fail">&minus;3.4</small></td></tr><tr><td>IN-R</td><td class="not">35.9</td><td>42.3 <small class="succ">+6.4</small></td><td>42.8 <small class="succ">+6.9</small></td><td>32.8 <small class="fail">&minus;3.1</small></td><td>32.2 <small class="fail">&minus;3.7</small></td></tr><tr><td>IN-S</td><td class="not">22.1</td><td>29.7 <small class="succ">+7.6</small></td><td>29.4 <small class="succ">+7.3</small></td><td>19.5 <small class="fail">&minus;2.6</small></td><td>19.0 <small class="fail">&minus;3.1</small></td></tr><tr><td>IN-V2</td><td class="not">63.9</td><td>69.5 <small class="succ">+5.5</small></td><td>69.9 <small class="succ">+6.0</small></td><td>61.4 <small class="fail">&minus;2.5</small></td><td>61.6 <small class="fail">&minus;2.4</small></td></tr></tbody></table></div><div class="table-caption"><strong>Table 2. Out-of-distribution robustness.</strong></div></div><p><strong>Out-of-Distribution Robustness.</strong> This observed success/failure split also persists under the out-of-distribution evaluation. Table 2 shows that on four ImageNet-1K distribution-shift benchmarks, Attention Distillation preserves the same positive/negative pattern observed in the in-distribution settings.</p><div class="takeaway">These results show that Attention Transfer is not universally effective under the standard teacher-student transfer protocol.</div></section>
+<section class="page-section"><h2 id="localize" class="title is-3 section-header">Localizing the Failure</h2><div class="header-line"></div><p>Having established the robust failure of Attention Transfer for specific teacher families, we now investigate exactly <em>where</em> the transferred pre-trained weights harm the student. We diagnose this problem systematically through the three-level analysis below.</p><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th>Attn.</th><th>MLP</th><th class="succ">DeiT-S</th><th class="fail">DINOv2-S</th><th class="fail">CLIP-B</th></tr></thead><tbody><tr><td></td><td></td><td>66.0</td><td>65.3</td><td>70.3</td></tr><tr><td>&#10003;</td><td></td><td>71.7 <small class="succ">+5.7</small></td><td>63.7 <small class="fail">&minus;1.6</small></td><td>69.4 <small class="fail">&minus;0.9</small></td></tr><tr><td></td><td>&#10003;</td><td>77.7 <small class="succ">+11.7</small></td><td>69.2 <small class="succ">+3.9</small></td><td>74.7 <small class="succ">+4.4</small></td></tr><tr><td>&#10003;</td><td>&#10003;</td><td>79.3 <small class="succ">+13.3</small></td><td>71.0 <small class="succ">+5.7</small></td><td>80.1 <small class="succ">+9.8</small></td></tr></tbody></table></div><div class="table-caption"><strong>Table 3. Component-level decomposition.</strong></div></div><p><strong>Component-Level Decomposition.</strong> We selectively initialize the attention and MLP blocks from representative teachers under a component-level decomposition setup with full fine-tuning. As shown in Table 3, MLP-only initialization is consistently beneficial for both the success teacher (DeiT-S) and the failure teachers (DINOv2-S and CLIP-B). In contrast, Attention-only initialization preserves the success/failure split. This shows that the failure families do not suffer from a generic inability to benefit from the pre-trained weights as a whole. Instead, the failure is consistently localized to the attention pathway.</p><div class="wrap-left fig"><figure><img src="./assets/images/fig_layerwise.png" alt="Figure 3"><figcaption><strong>Figure 3. Layer-wise decomposition.</strong></figcaption></figure></div><p><strong>Layer-wise Decomposition.</strong> We transfer attention from the top or bottom <em>k</em> layers of one representative failure teacher, DINOv2-S, under both Attention Copy and Attention Distillation. No layer subset recovers the positive gains observed for success families. Instead, performance remains below the No-Transfer baseline across all tested transfer depths. This rules out a single problematic depth as the source of failure and suggests that the failure is distributed broadly across the transferred attention patterns.</p><div class="wrap-left tbl"><div class="table-container"><table class="results compact"><thead><tr><th></th><th colspan="2" class="succ">DeiT-S <span class="grayt">(NoT: 63.1)</span></th><th colspan="2" class="fail">DINOv2-S <span class="grayt">(NoT: 63.1)</span></th></tr><tr><th></th><th>Copy</th><th>Distill</th><th>Copy</th><th>Distill</th></tr></thead><tbody><tr><td><em>Q</em></td><td>78.1 <small class="succ">+15.0</small></td><td>77.0 <small class="succ">+13.9</small></td><td>57.9 <small class="fail">&minus;5.2</small></td><td>59.0 <small class="fail">&minus;4.1</small></td></tr><tr><td><em>K</em></td><td>78.7 <small class="succ">+15.6</small></td><td>76.7 <small class="succ">+13.6</small></td><td>57.4 <small class="fail">&minus;5.7</small></td><td>58.7 <small class="fail">&minus;4.4</small></td></tr><tr><td><em>V</em></td><td>78.4 <small class="succ">+15.3</small></td><td>78.0 <small class="succ">+14.9</small></td><td>47.3 <small class="fail">&minus;15.9</small></td><td>54.9 <small class="fail">&minus;8.3</small></td></tr><tr><td>Attn.</td><td>75.3 <small class="succ">+12.2</small></td><td>75.6 <small class="succ">+12.4</small></td><td>59.9 <small class="fail">&minus;3.2</small></td><td>61.7 <small class="fail">&minus;1.5</small></td></tr></tbody></table></div><div class="table-caption"><strong>Table 4. QKV decomposition.</strong></div></div><p><strong>QKV Decomposition.</strong> Across both Attention Copy and Attention Distillation, Table 4 shows that transferring any of <em>Q</em>, <em>K</em>, or <em>V</em> alone remains beneficial for the success teacher DeiT-S. However, the same single-component transfer is harmful for the failure teacher DINOv2-S, with <em>V</em> producing the largest drop. Together with the previous layer-wise analysis, this further confirms that the failure is not confined to one specific layer or one isolated attention subcomponent, but is distributed broadly throughout the overall attention pathway.</p><div class="takeaway">This shows that the key issue is not simply whether the student can match the teacher’s attention patterns, but whether the matched patterns remain functional in the student’s attention routing. This naturally raises a sharper question: what determines this functional usability across teacher families?</div></section>
+<section class="page-section"><h2 id="rescue" class="title is-3 section-header">Architectural Compatibility Is the Key</h2><div class="header-line"></div><p><strong>Motivation.</strong> This leads us to hypothesize that the missing factor is <em>architectural compatibility</em> in the default protocol: transferred attention remains usable only when the student preserves the architectural components under which the teacher originally learned its attention patterns. Concretely, each failure family contains one or more such components that are absent from the standard student architecture: <code>LayerScale</code> in DINOv2 and DINOv2-wr, <code>PreLayerNorm</code> in CLIP, and <code>LayerScale</code> together with <code>RelativePositionBias</code> in BEiTv2. These native components define the scaling, normalization, and positional context under which the teacher’s attention was learned.</p><p><strong>Native-architecture Rescue.</strong> We augment the student architecture by adding only the teacher-native missing components. The inserted components are initialized <em>randomly</em> and trained jointly with the student, with no pre-trained weights loaded.</p><figure><img src="./assets/images/fig_rescue.png" alt="Figure 4"><figcaption><strong>Figure 4. Architectural compatibility rescues ineffective Attention Transfer.</strong></figcaption></figure><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th></th><th class="fail">DINOv2-S</th><th class="fail">CLIP-B</th><th class="fail">BEiTv2-B</th></tr></thead><tbody><tr><td>Standard-arch</td><td>63.1</td><td>69.0</td><td>69.0</td></tr><tr><td>Native-arch</td><td>60.1 <small class="fail">&minus;3.0</small></td><td>66.7 <small class="fail">&minus;2.3</small></td><td>66.3 <small class="fail">&minus;2.7</small></td></tr></tbody></table></div><div class="table-caption"><strong>Table 5. No-Transfer baseline comparison.</strong></div></div><p><strong>Results &amp; Analysis.</strong> Figure 4 demonstrates a clear and consistent performance flip for both Attention Transfer methods across the 4 failure families: transfer is harmful with the standard student architecture, while beneficial once teacher-native components are added. One natural concern is that these gains could come from the added components’ own capacity, rather than from restored compatibility with the teacher’s attention patterns. As shown in Table 5, native-arch NoT baselines yield worse performance than standard-arch ones for all failure families, indicating that the added components do not by themselves improve performance. The rescue effect therefore comes specifically from restoring architectural compatibility and unlocking effective Attention Transfer.</p><p><strong>Why Architectural Mismatch Causes Failure.</strong> To explain <em>why</em> this rescue is effective, we further test the architectural compatibility hypothesis directly at the attention level. We measure this via per-layer KL divergence between the transferred student’s attention and the teacher’s native attention, for both standard-arch and native-arch students under Attention Distillation. The standard-arch student matches the early layers almost perfectly with near-zero KL across all three failure families, but exhibits a sharp divergence spike in the last three layers. By contrast, the native-architecture student remains consistently low and smooth across all layers, without any collapse for transferring attention.</p><figure><img src="./assets/images/fig_student_teacher_drift.png" alt="Figure 5"><figcaption><strong>Figure 5. Layer-wise teacher-to-student KL divergence.</strong></figcaption></figure><div class="takeaway">Together, these results support architectural compatibility as the primary mechanism behind Attention Transfer’s effectiveness: attention is sufficient to recover the full benefit of the teacher’s pre-trained weights <em>only</em> when the student architecture provides the same attention routing as the teacher’s.</div></section>
+<section class="page-section"><h2 id="alternatives" class="title is-3 section-header">Ruling Out Alternative Explanations</h2><div class="header-line"></div><p>We now ask whether simpler explanations could account for the observed failure. We therefore investigate three natural alternative explanations below.</p><div class="wrap-left fig"><figure><img src="./assets/images/fig_loss_sweep_v4.png" alt="Figure 6"><figcaption><strong>Figure 6. Ablation on behaviors of MSE loss <em>vs.</em> default CE loss.</strong></figcaption></figure></div><p><strong>Not the Transfer Loss.</strong> MSE exhibits the same family-level trends as CE when the two losses’ magnitudes are matched by adjusting &lambda;. For success teachers (DeiT-S, DINO-S), both losses produce monotonic improvements as &lambda; increases. For failure teachers (DINOv2-S, DINOv2-wr-S), both losses instead produce monotonic degradation as &lambda; increases. These results rule out the inadequate choice of transfer loss as the primary explanation for the observed failure.</p><p><strong>Not the Pre-training Recipe.</strong> As shown in Table 6, for each candidate explanation from the failure families, we can identify at least one counter-example with that property from the success families, or one teacher that lacks it but still fails. Overall, none of these single-factor recipe properties predicts the observed family-level failure boundary. This rules out pre-training recipe differences as the primary explanation.</p><div class="table-container"><table class="results recipe"><thead><tr><th>Hypothesis</th><th>Failure</th><th>Counter-example</th></tr></thead><tbody>
+<tr><td rowspan="3">Pre-training signal</td><td>DINOv2 (Self-Distillation)</td><td>DINO (Self-Distillation)</td></tr>
+<tr><td>CLIP (Contrastive)</td><td>SigLIP2 (Contrastive)</td></tr>
+<tr><td>BEiTv2 (Masked Image Modeling)</td><td>iBOT/MAE (Masked Image Modeling)</td></tr>
+<tr><td rowspan="2">Data source</td><td>DINOv2 (Non-ImageNet Data)</td><td>SAM (Non-ImageNet Data)</td></tr>
+<tr><td>CLIP (Multi-Modal Data)</td><td>SigLIP2 (Multi-Modal Data)</td></tr>
+<tr><td rowspan="2">Special attribute</td><td>DINOv2 (with Attention Sink)</td><td>DeiT (with Attention Sink)</td></tr>
+<tr><td>DINOv2 (patch 14&rarr;16 to fit standard-arch)</td><td>CLIP (native patch 16, also fails)</td></tr>
+</tbody></table></div><div class="table-caption"><strong>Table 6. Counter-examples for potential pre-training recipe properties.</strong></div><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th></th><th class="succ">DINO-B</th><th class="fail">DINOv2-B</th><th class="fail">CLIP-B</th><th class="succ">DeiT-B</th></tr></thead><tbody><tr><td>MaxBoxAccV2</td><td>79.9</td><td>69.8</td><td>68.9</td><td>51.6</td></tr></tbody></table></div><div class="table-caption"><strong>Table 7. Attention map quality comparison before Attention Transfer.</strong></div></div><p><strong>Not the Attention Map Quality.</strong> We measure the quality of attention maps with the object localization protocol of SimPool: MaxBoxAccV2 on 2,000 ImageNet-1K validation images with ground-truth boxes. As shown in Table 7, the success teacher DINO-B scores higher than both failure teachers, while the other success teacher DeiT-B scores below them: the quality ranking is interleaved with the success/failure split. The intrinsic quality of the teacher’s attention maps therefore does not predict the family-dependent failure.</p><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th></th><th class="fail">DINOv2-S</th><th class="fail">CLIP-B</th><th class="fail">BEiTv2-B</th></tr></thead><tbody><tr><td>w/o rescue</td><td>76.1</td><td>72.0</td><td>68.2</td></tr><tr><td>w/ rescue</td><td>83.7 <small class="succ">+7.6</small></td><td>67.9 <small class="fail">&minus;4.1</small></td><td>51.6 <small class="fail">&minus;16.6</small></td></tr></tbody></table></div><div class="table-caption"><strong>Table 8. Attention map quality comparison of transferred students w/ and w/o the rescue.</strong></div></div><p>Furthermore, the proposed native-arch rescue does not work through attention map quality. As shown in Table 8, the rescue has no consistent effect direction on the attention map quality: it raises the measured quality under DINOv2-S but lowers it for CLIP-B and BEiTv2-B. In contrast, this rescue can reverse the transfer failure for all three weights.</p><div class="takeaway">After ruling out the inadequate choice of transfer loss, differences in pre-training recipe, and the quality of attention maps, we find that none of these alternatives accounts for the family-level failure boundary. Our findings refine the prevailing understanding of attention in ViT representations: attention is not architecture-agnostically transferable, and is sufficient <em>only</em> when the student architecture preserves the same attention routing as the teacher’s.</div></section>
+<section class="page-section"><h2 id="bibtex" class="title is-4 section-header plain-header">BibTeX</h2><pre class="bibtex">@inproceedings{qin2026attention,
+  title     = {Attention Transfer Is Not Universally Effective for Vision Transformers},
+  author    = {Qin, Huaiyuan and Yang, Muli and Goenawan, Gabriel James and
+               Hu, Peng and Gong, Chen and Peng, Xi and Zhu, Hongyuan},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026}
+}</pre><h2 class="title is-4 section-header plain-header" style="margin-top: 1.5em;">Acknowledgements</h2>
+      <p>This research is supported by the NSF of China (Grant No. 62336003, 12371510) and the Shanghai Municipal Special Program for Basic Research on General AI Foundation Models (Grant No. 2025SHZDZX025G12), and is conducted in collaboration with ST Engineering Geo-Insights Pte Ltd. We thank the anonymous reviewers and area chairs for their valuable feedback and constructive comments. This page is adapted from the <a href="https://echo-bench.github.io/" target="_blank">ECHO</a> project page, itself built on the <a href="https://nerfies.github.io/" target="_blank">Nerfies</a> template.</p><h2 id="references" class="title is-4 section-header plain-header" style="margin-top: 1.5em;">References</h2><ol class="refs"><li id="ref-li2024">Alexander C. Li, Yuandong Tian, Beidi Chen, Deepak Pathak, and Xinlei Chen. On the surprising effectiveness of attention transfer for vision transformers. <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2024. <a href="https://arxiv.org/abs/2411.09702" target="_blank">arXiv:2411.09702</a></li></ol></section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="back-to-top button is-dark is-small" title="Back to top"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></span></a>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  if (!links.length) return;
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var current = -1;
+  function update() {
+    var y = window.pageYOffset + 140, best = 0;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top + window.pageYOffset <= y) best = i;
+    }
+    if (best !== current) {
+      current = best;
+      links.forEach(function (a, i) { a.classList.toggle('is-active', i === best); });
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>

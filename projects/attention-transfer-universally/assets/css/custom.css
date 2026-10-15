@@ -58,10 +58,21 @@ table.results.recipe th, table.results.recipe td { text-align: left; }
 .content ol.refs { margin-left: 1.4em; font-size: 0.95em; }
 
 /* half-column tables: fit beside their paragraph */
-.column.is-half .table-container table.results.compact { font-size: 0.78em; }
-.column.is-half .table-container table.results.compact th, .column .table-container table.results.compact td { padding: 0.3em 0.35em; }
-.column.is-half .table-container { margin: 0; }
-.column.is-half .table-caption { margin-bottom: 0; }
+.wrap-right .table-container table.results.compact, .wrap-left .table-container table.results.compact { font-size: 0.78em; }
+.wrap-right .table-container table.results.compact, .wrap-left .table-container table.results.compact th, .column .table-container table.results.compact td { padding: 0.3em 0.35em; }
+.wrap-right .table-container { margin: 0; }
+.wrap-right .table-caption { margin-bottom: 0; }
 /* model-name colours in table headers (success = blue, failure = red), overriding Bulma's .content table th colour */
 .content table.results th.succ { color: #2166ac; }
 .content table.results th.fail { color: #d6604d; }
+
+/* floated figures/tables with text wrapping around them (wrapfigure / wraptable style) */
+.page-section { display: flow-root; }
+.wrap-right { float: right; clear: both; margin: 0.3em 0 1em 2em; }
+.wrap-left { float: left; clear: both; margin: 0.3em 2em 1em 0; }
+.wrap-right.fig, .wrap-left.fig { width: 46%; }
+.wrap-right.tbl, .wrap-left.tbl { width: auto; max-width: 60%; }
+.wrap-right figure, .wrap-left figure { margin: 0; }
+.wrap-right table.results, .wrap-left table.results { margin: 0 auto; }
+.page-section > figure, .page-section > .table-container, .content .takeaway, .content h3.sub-header { clear: both; }
+@media (max-width: 768px) { .wrap-right, .wrap-left, .wrap-right.fig, .wrap-left.fig, .wrap-right.tbl, .wrap-left.tbl { float: none; width: 100%; max-width: 100%; margin: 0.8em 0; } }

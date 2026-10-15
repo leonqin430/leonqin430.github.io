@@ -54,7 +54,9 @@ table.results.recipe th, table.results.recipe td { text-align: left; }
 @media (min-width: 1024px) { .nav-tabs { display: none; } }
 .content a.cite { color: inherit; border-bottom: 1px dotted #888; }
 .content a.cite:hover { color: #1a5fb4; border-bottom-color: #1a5fb4; }
-.content ol.refs { margin-left: 1.4em; font-size: 0.95em; }
+.content ol.refs { list-style: none; counter-reset: ref; margin-left: 0; padding-left: 2.2em; font-size: 0.95em; }
+.content ol.refs li { counter-increment: ref; position: relative; }
+.content ol.refs li::before { content: "[" counter(ref) "]"; position: absolute; left: -2.2em; }
 
 /* half-column tables: fit beside their paragraph */
 .wrap-right .table-container table.results.compact, .wrap-left .table-container table.results.compact { font-size: 0.78em; }

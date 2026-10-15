@@ -74,7 +74,7 @@ table.results.recipe th, table.results.recipe td { text-align: left; }
 .wrap-right { float: right; clear: both; margin: 0.3em 0 1em 2em; }
 .wrap-left { float: left; clear: both; margin: 0.3em 2em 1em 0; }
 .wrap-right.fig, .wrap-left.fig { width: 46%; }
-.wrap-right.tbl, .wrap-left.tbl { width: auto; max-width: 60%; }
+.wrap-right.tbl, .wrap-left.tbl { width: min-content; max-width: 60%; }  /* float exactly as wide as its table; the caption wraps to it */
 .wrap-right figure, .wrap-left figure { margin: 0; }
 .wrap-right table.results, .wrap-left table.results { margin: 0 auto; }
 .page-section > figure, .page-section > .table-container, .content .takeaway, .content h3.sub-header { clear: both; }
@@ -83,3 +83,15 @@ table.results.recipe th, table.results.recipe td { text-align: left; }
 table.results th.vline, table.results td.vline { border-right: 1px solid #333; }
 table.results.qkv thead tr:first-child th { border-bottom: none; }
 table.results.qkv thead tr:first-child th.group { border-bottom: 1px solid #333; }
+/* numeric result tables: first (label) column left-aligned, numeric columns centered (lcccc) */
+table.results.compact th:first-child, table.results.compact td:first-child { text-align: left; }
+/* Bulma's .content table th:not([align]) { text-align: inherit } would left-align the headers; centre them over their columns */
+.content table.results th:not([align]), .content table.results td { text-align: center; vertical-align: middle; }
+.content table.results.compact th:first-child:not([align]), .content table.results.compact td:first-child { text-align: left; }
+.content table.results.recipe th:not([align]), .content table.results.recipe td { text-align: left; }
+/* tables whose LaTeX spec is all-centred (Tables 3 and 4): centre the first column too */
+.content table.results.allc th:first-child:not([align]), .content table.results.allc td:first-child { text-align: center; }
+/* Bulma's .content table { width: 100% } would stretch short tables (5, 7, 8) across the float; size them to their content */
+.content table.results { width: auto; }
+/* the caption must not widen a floated table: give it zero intrinsic width and stretch it to the table's width */
+.wrap-right.tbl .table-caption, .wrap-left.tbl .table-caption { width: 0; min-width: 100%; }

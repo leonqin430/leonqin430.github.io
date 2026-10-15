@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DiD It in 87 Minutes (arXiv 2026): label-free Softmax-to-linear conversion of ViT detector backbones; successful conversion is governed by compatibility at the detector-facing interface.">
+  <title>DiD It in 87 Minutes: A Label-Free Softmax-to-Linear Adaptation of Vision Transformers for Object Detection</title>
+  <link rel="canonical" href="https://leonqin430.github.io/projects/did-it-in-87-minutes/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DiD It in 87 Minutes: A Label-Free Softmax-to-Linear Adaptation of Vision Transformers for Object Detection">
+  <meta property="og:description" content="arXiv 2026. Detector-Interface Distillation converts a trained Softmax-attention ViT detector into a linear-attention one without labels in about 87 minutes, matching supervised linear training on DOTA-v1.5.">
+  <meta property="og:url" content="https://leonqin430.github.io/projects/did-it-in-87-minutes/">
+  <meta property="og:image" content="https://leonqin430.github.io/projects/did-it-in-87-minutes/assets/images/fig_teaser.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/custom.css">
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-body" style="padding: 5rem 1.5rem 0.5rem 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h1 class="title is-size-2 publication-title section-header" style="padding-bottom: 0.3em;">
+            DiD It in 87 Minutes:<br>A Label-Free Softmax-to-Linear Adaptation of Vision Transformers for Object Detection
+          </h1>
+          <div class="is-size-5 publication-authors">
+            Successful conversion is governed by compatibility at the <em>detector-facing interface</em>
+          </div>
+          <div class="fullpage-line" style="margin-bottom: 1.5em;"></div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><a href="https://leonqin430.github.io/" class="plain-link">Huaiyuan Qin</a><sup>1*</sup></span>
+            <span class="author-block">Gabriel James Goenawan<sup>1*&dagger;</sup></span>
+            <span class="author-block">Zihang Lin<sup>1,2*&dagger;</sup></span>
+            <span class="author-block">Muli Yang<sup>1</sup></span>
+            <span class="author-block">Hongyuan Zhu<sup>1&#9993;</sup></span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Institute of Advanced Intelligence and Computing (IAIC), A*STAR, Singapore</span><br>
+            <span class="author-block"><sup>2</sup>Nanyang Technological University</span>
+          </div>
+          <div class="is-size-7 publication-authors" style="margin-top: 10px;">
+            <span class="author-block"><sup>*</sup>Equal first author &nbsp; <sup>&dagger;</sup>Work done while at A*STAR &nbsp; <sup>&#9993;</sup>Corresponding author</span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><strong>arXiv 2026</strong></span>
+          </div>
+          <br>
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2608.22368" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2608.22368" target="_blank" class="external-link button is-normal is-dark">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg></span><span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <span class="external-link button is-normal is-dark is-disabled" title="Code release coming soon">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><span>Code (coming soon)</span>
+              </span>
+            </span>
+          </div>
+          <div class="fullpage-line" style="margin-top: 1.5em;"></div>
+
+          <div class="nav-tabs">
+            <a href="#abstract">Abstract</a>
+            <a href="#what-is-did">What is DiD?</a>
+            <a href="#generic-transfer">Generic Transfer</a>
+            <a href="#placement">Supervision Placement</a>
+            <a href="#main-results">Main Results</a>
+            <a href="#dynamics">Interface Alignment</a>
+            <a href="#efficiency">Efficiency</a>
+            <a href="#bibtex">BibTeX</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+<section class="section" style="padding-top: 0.5rem;">
+  <div class="container" style="max-width: 1280px;">
+    <div class="columns">
+      <div class="column is-one-fifth toc-column">
+        <aside class="menu toc">
+          <p class="toc-title">Contents</p>
+          <ul class="menu-list">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#what-is-did">What is DiD?</a></li>
+            <li><a href="#generic-transfer">Why Is Generic Transfer Insufficient?</a></li>
+            <li><a href="#placement">Where Should Conversion Be Supervised?</a></li>
+            <li><a href="#main-results">Main Results</a></li>
+            <li><a href="#dynamics">Interface Alignment and Conversion Dynamics</a></li>
+            <li><a href="#efficiency">Inference Efficiency</a></li>
+            <li><a href="#bibtex">BibTeX</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="column is-four-fifths content page-body" style="max-width: 768px;">
+<section class="page-section"><figure><img src="./assets/images/fig_teaser.png" alt="Figure 1"><figcaption><strong>Figure 1. Overview of the label-free Softmax-to-linear detector conversion setting.</strong></figcaption></figure></section>
+<section class="page-section"><h2 id="abstract" class="title is-3 section-header">Abstract</h2><div class="header-line"></div><p>While linear attention is a compelling mechanism for high-resolution object detection due to its reduced cost for global token mixing, converting the Softmax-attention ViT backbone of a trained detector into a linear-attention one is not a trivial drop-in replacement. Directly swapping the attention operator leads to severe performance degradation, and generic label-free distillation, though effective for classification, often fails on detection tasks. We argue that the central challenge is <em>detector-interface preservation</em>: the converted backbone must reproduce the exact feature tensors expected by the fixed downstream detector, rather than merely imitating internal Softmax hidden states. To address this, we introduce Detector-Interface Distillation (DiD), a label-free conversion method that exclusively trains the linear-attention backbone by aligning detector-facing interface tensors with those of a frozen Softmax teacher. On DOTA-v1.5, DiD substantially outperforms established baselines and matches supervised, fully trained linear models. Adaptation completes in roughly 87 minutes on 4 GPUs, and the linearized backbone cuts inference latency by &sim;62% and peak memory by &sim;49%. We hope our findings offer the community a simple, label-free route to reusing trained Softmax detectors as efficient linear ones, and encourage interface-aware objectives in future architecture-conversion work.</p></section>
+<section class="page-section"><h2 id="what-is-did" class="title is-3 section-header">What is DiD?</h2><div class="header-line"></div><p><strong>Label-Free Softmax-to-Linear Conversion.</strong> Rather than retraining the full detector, we replace the quadratic attention modules in the backbone of a trained ViT detector with linear attention and perform a short label-free adaptation stage that trains only the backbone, as illustrated in Figure 1. The difficulty is that the converted backbone must remain compatible with a detector pipeline that was trained around the original Softmax feature distribution.</p><p><strong>Overview.</strong> Detector-Interface Distillation (DiD) adapts a linear-attention student backbone to a detector that was originally trained with a Softmax-attention backbone. DiD aligns the multi-scale tensors produced at the output of the neck/FPN, while updating only the student backbone. Softmax and linear attention implement different token-mixing rules, so their intermediate hidden states need not follow identical trajectories. DiD instead preserves the feature boundary on which the fixed detector depends. Algorithm 1 summarizes this computation in pseudocode.</p><div class="algo-float"><div class="algo-caption"><strong>Algorithm 1</strong> DiD PyTorch-style pseudocode.</div><pre class="algo"><span class="ln"><span class="cm"># B_t: frozen Softmax teacher backbone</span></span><span class="ln"><span class="cm"># B_s: trainable linear-attention student</span></span><span class="ln"><span class="cm"># N_t, N_s: identical frozen neck/FPN copies</span></span><span class="ln"><span class="cm"># H: frozen detector heads (unused in loss)</span></span><span class="ln"><span class="cm"># beta: weights, beta[i] for interface m = i+1</span></span><span class="ln">B_s.params = B_t.params <span class="cm"># copy compatible weights</span></span><span class="ln">for x in unlabeled_images: <span class="cm"># no detection labels</span></span><span class="ln">    R_t = B_t.readout_features(x) <span class="cm"># frozen path</span></span><span class="ln">    R_s = B_s.readout_features(x) <span class="cm"># trainable</span></span><span class="ln"></span><span class="ln">    Z_t = N_t(R_t) <span class="cm"># tensors z_t^(1), ..., z_t^(M)</span></span><span class="ln">    Z_s = N_s(R_s) <span class="cm"># tensors z_s^(1), ..., z_s^(M)</span></span><span class="ln"></span><span class="ln">    <span class="cm"># weighted detector-interface reconstruction</span></span><span class="ln">    loss = 0</span><span class="ln">    for i in range(M):</span><span class="ln">        loss += beta[i]*mse(Z_s[i], Z_t[i].detach())</span><span class="ln">    loss /= sum(beta)</span><span class="ln"></span><span class="ln">    loss.backward() <span class="cm"># update only student backbone</span></span><span class="ln">    update(B_s) <span class="cm"># AdamW step</span></span><span class="ln"></span><span class="ln"><span class="cm"># deploy: drop teacher, reuse the frozen detector</span></span><span class="ln">converted_detector = H o N_s o B_s</span></pre></div><p><strong>Weighted Interface Objective.</strong> DiD aligns corresponding teacher and student interface tensors using the weighted reconstruction objective</p><div class="eq"><img class="eqimg" src="./assets/images/eq_did_loss.svg" alt="L_DiD(x) = 1 / (sum over m=1..M of beta_m) times sum over m=1..M of beta_m ||z_s^(m)(x) - z_t^(m)(x)||_F^2"><span class="eqno">(9)</span></div><p>where &beta;<sub><em>m</em></sub> &gt; 0 controls the contribution of interface output <em>m</em>.</p><p><strong>Conversion and Deployment.</strong> After conversion, the teacher branch is discarded. The converted detector reuses the original neck/FPN and prediction modules without additional fine-tuning.</p></section>
+<section class="page-section"><h2 id="generic-transfer" class="title is-3 section-header">Why Is Generic Transfer Insufficient?</h2><div class="header-line"></div><p>To test whether a classification-oriented transfer objective is sufficient for object detection, we compare direct copy and generic LightlyTrain-style global-feature distillation on ImageNet and CIFAR-100 classification, and on DOTA-v1.5 detection with RetinaNet.</p><div class="table-container"><table class="results compact qkv wide"><thead><tr><th></th><th colspan="4" class="group vline">Classification</th><th colspan="2" class="group">Detection</th></tr><tr><th rowspan="2">Method</th><th colspan="2" class="group">ImageNet</th><th colspan="2" class="group vline">CIFAR-100</th><th colspan="2" class="group">DOTA-v1.5</th></tr><tr><th>Acc.</th><th>Retained (%)</th><th>Acc.</th><th class="vline">Retained (%)</th><th>mAP</th><th>Retained (%)</th></tr></thead><tbody><tr class="rb"><td>Softmax reference</td><td>79.83</td><td>100.0</td><td>78.09</td><td class="vline">100.0</td><td>33.5</td><td>100.0</td></tr><tr><td>Direct copy</td><td>5.08</td><td>6.4</td><td>3.54</td><td class="vline">4.5</td><td>1.7</td><td>5.1</td></tr><tr><td>Generic distillation</td><td>77.83</td><td>97.5</td><td>75.92</td><td class="vline">97.2</td><td>18.1</td><td>54.0</td></tr></tbody></table></div><div class="table-caption"><strong>Table 1. Cross-task Softmax-to-ReLU transfer.</strong></div><p>Direct copy collapses across all three tasks (Table 1), confirming that the attention operator cannot be replaced without adaptation. Generic distillation, however, exhibits a clear task gap: it retains 97.5% and 97.2% of the Softmax-reference accuracy on ImageNet and CIFAR-100, respectively, but only 54.0% of the reference mAP on DOTA-v1.5.</p><div class="takeaway">Preserving global semantic representations is therefore insufficient to maintain the structured, multi-scale features required by a fixed detector, motivating a supervision target tied to the deployed detection pathway.</div></section>
+<section class="page-section"><h2 id="placement" class="title is-3 section-header">Where Should Conversion Be Supervised?</h2><div class="header-line"></div><div class="wrapblock"><div class="wrap-right tbl"><div class="table-container"><table class="results compact"><thead><tr><th>Supervision target</th><th>mAP</th><th>mAP<sub>50</sub></th><th>mAP<sub>75</sub></th></tr></thead><tbody><tr><td>Attention outputs</td><td>7.8</td><td>17.4</td><td>5.6</td></tr><tr><td>Hidden states from all layers</td><td>25.2</td><td>44.7</td><td>24.6</td></tr><tr><td>Hidden states from readout layers</td><td>20.3</td><td>37.4</td><td>19.0</td></tr><tr><td>Final hidden state</td><td>12.6</td><td>24.1</td><td>11.7</td></tr><tr><td><strong>Post-neck/FPN detector features</strong></td><td><strong>30.7</strong></td><td><strong>54.1</strong></td><td><strong>30.1</strong></td></tr></tbody></table></div><div class="table-caption"><strong>Table 2. Effect of supervision placement for RetinaNet conversion on DOTA-v1.5.</strong></div></div><p>We ask where supervision should be applied so that the converted backbone remains compatible with the fixed detector.</p><p>As shown in Table 2, matching all transformer hidden states is the strongest detector-agnostic target, but it remains 5.5 mAP below supervision after the neck/FPN. Matching only the backbone layers supplied to the neck is also insufficient. </p></div><div class="takeaway">This experiment identifies the feature boundary between the frozen neck/FPN and the detector heads as the appropriate conversion target. We refer to this boundary as the <em>detector-facing interface</em>.</div></section>
+<section class="page-section"><h2 id="main-results" class="title is-3 section-header">Main Results</h2><div class="header-line"></div><p><strong>Experimental Setup.</strong> We evaluate label-free detector conversion on DOTA-v1.5, a high-resolution aerial-detection benchmark where global token mixing is costly and small objects are common. We use RetinaNet and Faster R-CNN with a ViT-S backbone. We evaluate two linear-attention feature maps: &phi;(<em>x</em>) = ReLU(<em>x</em>) following <a href="#ref-han2024" class="cite">Han et al. (2024)</a>, and &phi;(<em>x</em>) = ELU(<em>x</em>) + 1 following <a href="#ref-katharopoulos2020" class="cite">Katharopoulos et al. (2020)</a>. </p><p><strong>Baselines.</strong> We compare DiD with four label-free alternatives and one supervised reference. <em>Direct copy</em> replaces the attention operator and evaluates the copied parameters without adaptation. <em>Generic distillation</em> uses LightlyTrain to align global teacher-student representations. <em>Softmax-generated pseudo-label distillation</em> uses AutoDistill to train the student from the frozen teacher’s predicted detections. <em>Hidden-state distillation</em> follows <a href="#ref-radlads" class="cite">RADLADS</a>-style intermediate representation matching across transformer layers. <em>Full training</em> trains the corresponding linear-attention detector using detection labels and is included only as a supervised reference.</p><div class="table-container"><table class="results compact qkv wide"><thead><tr><th class="l" rowspan="2">Detector</th><th class="l" rowspan="2">Method</th><th colspan="3">ReLU</th><th colspan="3">ELU</th></tr><tr><th>mAP</th><th>mAP<sub>50</sub></th><th class="vline">mAP<sub>75</sub></th><th>mAP</th><th>mAP<sub>50</sub></th><th>mAP<sub>75</sub></th></tr></thead><tbody><tr class="refrow"><td class="l rb" rowspan="7">RetinaNet</td><td class="l">Softmax reference</td><td>33.5</td><td>58.1</td><td class="vline">33.2</td><td>33.5</td><td>58.1</td><td>33.2</td></tr><tr class="rb"><td class="l">Full training</td><td>30.9</td><td>53.3</td><td class="vline">30.9</td><td>30.8</td><td>53.0</td><td><strong>31.3</strong></td></tr><tr><td class="l">Direct copy</td><td>1.7</td><td>3.8</td><td class="vline">1.2</td><td>1.3</td><td>2.9</td><td>0.9</td></tr><tr><td class="l">Generic distillation</td><td>18.1</td><td>35.2</td><td class="vline">16.6</td><td>9.6</td><td>19.2</td><td>5.3</td></tr><tr><td class="l">Softmax-generated pseudo-label distillation</td><td>14.8</td><td>33.6</td><td class="vline">10.1</td><td>19.6</td><td>38.2</td><td>17.2</td></tr><tr><td class="l">Hidden-state distillation</td><td>28.1</td><td>49.7</td><td class="vline">27.7</td><td>26.7</td><td>47.4</td><td>26.6</td></tr><tr class="rb"><td class="l"><strong>DiD (Ours)</strong></td><td><strong>31.1</strong></td><td><strong>54.5</strong></td><td class="vline"><strong>31.0</strong></td><td><strong>31.1</strong></td><td><strong>54.4</strong></td><td>30.7</td></tr><tr class="refrow"><td class="l" rowspan="7">Faster R-CNN</td><td class="l">Softmax reference</td><td>33.1</td><td>56.0</td><td class="vline">34.1</td><td>33.1</td><td>56.0</td><td>34.1</td></tr><tr class="rb"><td class="l">Full training</td><td>28.9</td><td>50.0</td><td class="vline">29.1</td><td>28.6</td><td>50.0</td><td>28.6</td></tr><tr><td class="l">Direct copy</td><td>0.3</td><td>0.7</td><td class="vline">0.2</td><td>0.2</td><td>0.4</td><td>0.1</td></tr><tr><td class="l">Generic distillation</td><td>14.9</td><td>30.8</td><td class="vline">12.9</td><td>8.9</td><td>19.3</td><td>7.1</td></tr><tr><td class="l">Softmax-generated pseudo-label distillation</td><td>25.7</td><td>46.2</td><td class="vline">25.3</td><td>25.4</td><td>46.1</td><td>24.9</td></tr><tr><td class="l">Hidden-state distillation</td><td>27.1</td><td>48.1</td><td class="vline">26.9</td><td>27.2</td><td>48.1</td><td>26.6</td></tr><tr><td class="l"><strong>DiD (Ours)</strong></td><td><strong>29.3</strong></td><td><strong>51.1</strong></td><td class="vline"><strong>29.8</strong></td><td><strong>28.9</strong></td><td><strong>50.2</strong></td><td><strong>29.4</strong></td></tr></tbody></table></div><div class="table-caption"><strong>Table 3. Label-free Softmax-to-linear conversion on DOTA-v1.5 with ViT-S.</strong></div><p>Table 3 establishes three consistent trends: Firstly, direct copy produces near-zero mAP for both attention kernels and detector families. Secondly, generic representation matching and pseudo-label supervision recover only part of the lost detector performance. Thirdly, DiD is the strongest label-free method. Its performance is also comparable to the supervised linear-attention references.</p><div class="takeaway">The consistency between RetinaNet, an anchor-based one-stage detector, and Faster R-CNN, a proposal-based two-stage detector, indicates that DiD is not tied to a particular downstream detection architecture.</div></section>
+<section class="page-section"><h2 id="dynamics" class="title is-3 section-header">Interface Alignment and Conversion Dynamics</h2><div class="header-line"></div><p>To understand why DiD outperforms hidden-state distillation, we compare how the two objectives affect teacher-student alignment inside the backbone and at the detector-facing interface. Figure 2(a) compares the normalized feature error <img class="ineq" src="./assets/images/eq_nmse.svg" alt="nMSE(s, t) = E||s - t||_2^2 / E||t||_2^2"> at internal backbone states and detector-facing tensors.</p><figure><div class="subfig"><img src="./assets/images/fig_alignment_profile.png" alt="Figure 2(a)"><div class="subfig-label">(a)</div></div><div class="subfig subfig-b"><img src="./assets/images/fig_dynamics.png" alt="Figure 2(b)"><div class="subfig-label">(b)</div></div><figcaption><strong>Figure 2. Conversion behavior on RetinaNet.</strong></figcaption></figure><p>All-layer hidden-state distillation achieves lower mismatch within the transformer, whereas DiD achieves lower mismatch at the detector-facing interface and higher detector accuracy.</p><div class="takeaway">This result provides representational evidence for the internal-compensation interpretation: after the attention operator changes, close agreement at every intermediate state is not necessary, provided that the student resolves the discrepancy before its features are consumed by the frozen detector.</div><p>Figure 2(b) shows that DiD maintains an advantage over hidden-state distillation throughout conversion and reaches the supervised linear-training regime after approximately 20k-30k steps. </p></section>
+<section class="page-section"><h2 id="efficiency" class="title is-3 section-header">Inference Efficiency</h2><div class="header-line"></div><p>Figure 3 compares backbone-only inference for Softmax attention and the ReLU-linearized ViT. The linearized backbone reduces average latency by approximately 62% and peak memory by approximately 49%.</p><figure><img src="./assets/images/fig_benchmark.png" alt="Figure 3"><figcaption><strong>Figure 3. Backbone-only inference comparison between the Softmax and ReLU-linearized ViT.</strong></figcaption></figure><div class="takeaway">Our central finding is that successful conversion is governed by compatibility at the detector-facing interface: supervising the tensors actually consumed by the frozen detector lets the linear backbone compensate internally, where direct operator replacement and generic distillation fail.</div></section>
+<section class="page-section"><h2 id="bibtex" class="title is-4 section-header plain-header">BibTeX</h2><pre class="bibtex">@article{qin2026did,
+  title   = {DiD It in 87 Minutes: A Label-Free Softmax-to-Linear
+             Adaptation of Vision Transformers for Object Detection},
+  author  = {Qin, Huaiyuan and Goenawan, Gabriel James and Lin, Zihang and
+             Yang, Muli and Zhu, Hongyuan},
+  journal = {arXiv preprint arXiv:2608.22368},
+  year    = {2026}
+}</pre><h2 class="title is-4 section-header plain-header" style="margin-top: 1.5em;">Acknowledgements</h2>
+      <p>This page is adapted from the <a href="https://echo-bench.github.io/" target="_blank">ECHO</a> project page, itself built on the <a href="https://nerfies.github.io/" target="_blank">Nerfies</a> template.</p><h2 id="references" class="title is-4 section-header plain-header" style="margin-top: 1.5em;">References</h2><ol class="refs"><li id="ref-han2024">Dongchen Han, Yifan Pu, Zhuofan Xia, Yizeng Han, Xuran Pan, Xiu Li, Jiwen Lu, Shiji Song, and Gao Huang. <a href="https://arxiv.org/abs/2412.06590" target="_blank">Bridging the Divide: Reconsidering Softmax and Linear Attention</a>. <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2024.</li><li id="ref-katharopoulos2020">Angelos Katharopoulos, Apoorv Vyas, Nikolaos Pappas, and Fran&ccedil;ois Fleuret. <a href="https://arxiv.org/abs/2006.16236" target="_blank">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</a>. <em>International Conference on Machine Learning (ICML)</em>, 2020.</li><li id="ref-radlads">Daniel Goldstein, Eric Alcaide, Janna Lu, and Eugene Cheah. <a href="https://arxiv.org/abs/2505.03005" target="_blank">RADLADS: Rapid Attention Distillation to Linear Attention Decoders at Scale</a>. <em>Conference on Language Modeling (COLM)</em>, 2025.</li></ol></section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="back-to-top button is-dark is-small" title="Back to top"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></span></a>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  if (!links.length) return;
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var current = -1;
+  function update() {
+    var y = window.pageYOffset + 140, best = 0;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top + window.pageYOffset <= y) best = i;
+    }
+    if (best !== current) {
+      current = best;
+      links.forEach(function (a, i) { a.classList.toggle('is-active', i === best); });
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>

@@ -77,3 +77,7 @@ table.results.recipe th, table.results.recipe td { text-align: left; }
 .wrap-right table.results, .wrap-left table.results { margin: 0 auto; }
 .page-section > figure, .page-section > .table-container, .content .takeaway, .content h3.sub-header { clear: both; }
 @media (max-width: 768px) { .wrap-right, .wrap-left, .wrap-right.fig, .wrap-left.fig, .wrap-right.tbl, .wrap-left.tbl { float: none; width: 100%; max-width: 100%; margin: 0.8em 0; } }
+/* paper-style rules: vertical rule after the MLP column (Table 3), cmidrule-style group headers (Table 4) */
+table.results th.vline, table.results td.vline { border-right: 1px solid #333; }
+table.results.qkv thead tr:first-child th { border-bottom: none; }
+table.results.qkv thead tr:first-child th.group { border-bottom: 1px solid #333; }

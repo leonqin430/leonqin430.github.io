@@ -457,7 +457,8 @@ sup.author-mark .mark-mail {
 /* ============================================================
    Education / Experience (structure from pingchuan.ma)
    ============================================================ */
-#education { padding-bottom: 0; }
+#education,
+#experience { padding-bottom: 0; }   /* keep one 40px gap between the collapsed sections */
 
 .exp-item { margin-top: 18px; }
 
@@ -475,6 +476,8 @@ sup.author-mark .mark-mail {
   white-space: nowrap;
 }
 .exp-location { color: var(--text-muted); }
+.awards .exp-row + .exp-row { margin-top: 8px; }
+.award-name { font-weight: 700; }
 
 /* ============================================================
    Footer

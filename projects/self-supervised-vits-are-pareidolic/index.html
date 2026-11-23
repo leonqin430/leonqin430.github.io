@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Modern Self-Supervised Vision Transformers Are Pareidolic (arXiv 2026): on white noise, the features of DINOv2 and DINOv3 impose a template that hinders their object emergence; a training-free calibration measured on noise alone recovers it.">
+  <title>Modern Self-Supervised Vision Transformers Are Pareidolic</title>
+  <link rel="canonical" href="https://leonqin430.github.io/projects/self-supervised-vits-are-pareidolic/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Modern Self-Supervised Vision Transformers Are Pareidolic">
+  <meta property="og:description" content="arXiv 2026. On white noise, a few feature directions of self-supervised ViTs form a spatially coherent template. In DINOv2 and DINOv3 this pareidolic subspace holds most of the feature variance and hinders object emergence; Pareidolic Subspace Calibration recovers it without training.">
+  <meta property="og:url" content="https://leonqin430.github.io/projects/self-supervised-vits-are-pareidolic/">
+  <meta property="og:image" content="https://leonqin430.github.io/projects/self-supervised-vits-are-pareidolic/assets/images/fig_teaser.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/custom.css">
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-body" style="padding: 5rem 1.5rem 0.5rem 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h1 class="title is-size-2 publication-title section-header" style="padding-bottom: 0.3em;">
+            Modern Self-Supervised Vision Transformers Are Pareidolic
+          </h1>
+          <div class="is-size-5 publication-authors">
+            Object emergence in DINOv2 and DINOv3 is <em>hindered</em> by pareidolia rather than lost
+          </div>
+          <div class="fullpage-line" style="margin-bottom: 1.5em;"></div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">Zihang Lin<sup>1,2,*</sup></span>
+            <span class="author-block"><a href="https://leonqin430.github.io/" class="plain-link">Huaiyuan Qin</a><sup>1,&dagger;</sup></span>
+            <span class="author-block">Liangli Zhen<sup>1</sup></span>
+            <span class="author-block">Qing Guo<sup>3</sup></span>
+            <span class="author-block">Jun Liu<sup>4</sup></span>
+            <span class="author-block">Yew Soon Ong<sup>1,2</sup></span>
+            <span class="author-block">Hongyuan Zhu<sup>1,&#9993;</sup></span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Institute of Advanced Intelligence and Computing (IAIC), A*STAR, Singapore</span><br>
+            <span class="author-block"><sup>2</sup>Nanyang Technological University</span>
+            <span class="author-block"><sup>3</sup>Nankai University</span>
+            <span class="author-block"><sup>4</sup>Lancaster University</span>
+          </div>
+          <div class="is-size-7 publication-authors" style="margin-top: 10px;">
+            <span class="author-block"><span style="white-space: nowrap;"><sup>*</sup>Work done while interning at A*STAR</span> &nbsp; <span style="white-space: nowrap;"><sup>&dagger;</sup>Project lead</span> &nbsp; <span style="white-space: nowrap;"><sup>&#9993;</sup>Corresponding author</span></span>
+          </div>
+          <br>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><strong>arXiv 2026</strong></span>
+          </div>
+          <br>
+          <div class="publication-links">
+            <span class="link-block">
+              <span class="external-link button is-normal is-dark is-disabled" title="arXiv version coming soon">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg></span><span>arXiv (coming soon)</span>
+              </span>
+            </span>
+            <span class="link-block">
+              <span class="external-link button is-normal is-dark is-disabled" title="Paper coming soon">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg></span><span>Paper (coming soon)</span>
+              </span>
+            </span>
+            <span class="link-block">
+              <span class="external-link button is-normal is-dark is-disabled" title="Code release coming soon">
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span><span>Code (coming soon)</span>
+              </span>
+            </span>
+          </div>
+          <div class="fullpage-line" style="margin-top: 1.5em;"></div>
+
+          <div class="nav-tabs">
+            <a href="#abstract">Abstract</a>
+            <a href="#noise">White Noise</a>
+            <a href="#hinders">Object Emergence</a>
+            <a href="#psc">Calibration</a>
+            <a href="#origin">Origin</a>
+            <a href="#bibtex">BibTeX</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BODY WITH CONTENTS SIDEBAR ===================== -->
+<section class="section" style="padding-top: 0.5rem;">
+  <div class="container" style="max-width: 1280px;">
+    <div class="columns">
+      <div class="column is-one-fifth toc-column">
+        <aside class="menu toc">
+          <p class="toc-title">Contents</p>
+          <ul class="menu-list">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#noise">White Noise Reveals Pareidolia</a></li>
+            <li><a href="#hinders">Pareidolia Hinders Object Emergence</a></li>
+            <li><a href="#psc">Pareidolic Subspace Calibration</a></li>
+            <li><a href="#origin">Where Pareidolia Comes From</a></li>
+            <li><a href="#bibtex">BibTeX</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="column is-four-fifths content page-body" style="max-width: 768px;">
+<section class="page-section"><figure><img src="./assets/images/fig_teaser.png" alt="Figure 1: (a) pareidolia in human perception, a person sees a face in an image of the Sun; (b) pareidolia in a self-supervised ViT, which imposes a template on white noise"><figcaption><strong>Figure 1. Modern self-supervised ViTs are pareidolic.</strong></figcaption></figure></section>
+<section class="page-section"><h2 id="abstract" class="title is-3 section-header">Abstract</h2><div class="header-line"></div><p>In human perception, pareidolia is the tendency to perceive a meaningful pattern, such as a face, in a random or ambiguous stimulus. We find a similar phenomenon in modern self-supervised Vision Transformers (ViTs): on white noise, which contains neither objects nor spatial structure, a few directions of their features still form spatially coherent patterns across the patches, imposed by the features themselves. We call this behavior pareidolia, and the span of these directions the pareidolic subspace. On natural images, it holds most of the feature variance in DINOv2 and DINOv3 but little in DINO. This excess explains why DINOv2 and DINOv3, despite stronger dense features, fall far behind DINO in object emergence, the hallmark ability of self-supervised ViTs to identify the patches of an object on their own. Our experiments further show that scaling down their pareidolic subspaces steadily restores their ability to discover objects, so their object emergence is hindered rather than lost. These findings naturally lead to a training-free calibration: <strong>P</strong>areidolic <strong>S</strong>ubspace <strong>C</strong>alibration (PSC) measures the pareidolic subspace only on a noise input and then calibrates the features of natural inputs by scaling its directions down to the variance level of the remaining directions. Across diverse object emergence tasks, PSC improves DINOv2 and DINOv3 by up to 31.7 CorLoc on object discovery, 30.2 maxF on saliency detection and 59.9&nbsp;𝒥 on video object segmentation. To identify the cause of pareidolia, we trace it block by block and find that it forms in the middle blocks of every self-supervised model we examine but stays strong to the last block only in models trained with a patch-level loss; controlled training confirms that an image-level loss alone lets it fade.</p></section>
+<section class="page-section"><h2 id="noise" class="title is-3 section-header">White Noise Reveals Pareidolia</h2><div class="header-line"></div><p>Pareidolia is the tendency to perceive a meaningful pattern, such as a face, in a random or ambiguous stimulus, like the jack-o’-lantern face that people perceive in an image of the Sun (Fig.&nbsp;1a). In human perception, pareidolia arises when learned expectations dominate weak or ambiguous input, and it is studied with pure noise, where the input offers no evidence at all: observers shown pure noise report faces and letters, and averaging the noise images that triggered their reports recovers the internal representation behind them, which psychophysics models as a template that the observer matches against the input.</p><p>We run the same test on modern self-supervised Vision Transformers (ViTs) and find a similar phenomenon (Fig.&nbsp;1b). White noise contains neither objects nor spatial structure, so the features it produces should have no spatial structure either. Yet the leading directions of their features form spatially coherent patterns across the patches, such as smooth waves across the image (Fig.&nbsp;2a): a template that the features impose, as human observers impose theirs on noise. We therefore call this behavior pareidolia, and the span of these directions the pareidolic subspace. This pareidolia varies in degree: it is faint in <a href="#ref-dino" class="cite">DINO</a> and strong in its successors, <a href="#ref-dinov2" class="cite">DINOv2</a> and <a href="#ref-dinov3" class="cite">DINOv3</a> (Fig.&nbsp;2b). We study the DINO lineage, in which object emergence was first observed, and find pareidolia in other self-supervised ViTs as well.</p><figure><img src="./assets/images/fig_probe.png" alt="Figure 2: (a) response of DINO-B, DINOv2-B and DINOv3-B to one white-noise image along their first three directions and the first direction after the pareidolic subspace; (b) pareidolia index on noise and (c) excess share on natural images for all eight models"><figcaption><strong>Figure 2. On white noise, the features impose a template, faint in DINO and strong in DINOv2 and DINOv3.</strong></figcaption></figure><div class="takeaway">On natural images, the pareidolic subspace holds most of the feature variance in DINOv2 and DINOv3 but little in DINO: for the Base models, 8% of the directions hold 53% of the variance in DINOv2, and 2% hold 65% in DINOv3.</div></section>
+<section class="page-section"><h2 id="hinders" class="title is-3 section-header">Pareidolia Hinders Object Emergence</h2><div class="header-line"></div><div class="wrapblock"><div class="wrap-right fig"><figure><img src="./assets/images/fig_radar.png" alt="Figure 3: radar chart of the object emergence of DINOv2 and DINOv3 relative to DINO on object discovery, saliency detection and video object segmentation"><figcaption><strong>Figure 3. Object emergence fades in DINOv2 and DINOv3.</strong></figcaption></figure></div><p>This excess matters for object emergence, the hallmark ability of self-supervised ViTs to identify the patches of an object on their own. Object emergence is revealed by grouping patches according to the cosine similarity of their final-layer keys, the very features in which we find pareidolia, and it is tested by three standard tasks: unsupervised object discovery, saliency detection and video object segmentation. When the pareidolic subspace holds most of the variance, it dominates these similarities, so patches are grouped by the pareidolic pattern rather than by the objects they belong to. Accordingly, DINOv2 and DINOv3, despite stronger dense features and large gains on dense tasks solved by trained heads, fall far behind DINO in object emergence across diverse tasks (Fig.&nbsp;3).</p></div><p>To examine how the pareidolic subspace affects object emergence, we rescale it in DINOv2 and DINOv3: scaling it down steadily restores their object discovery, and scaling it up degrades it further (Fig.&nbsp;4).</p><p><strong>The template alone reproduces the failure.</strong> We take DINOv3-B’s template, its noise response within the pareidolic subspace, resample it to the patch grid of each image, and add it to the final keys of DINO-B at a prescribed share of their variance (Fig.&nbsp;5). As the injected share grows, DINO-B’s object discovery falls, and at a share close to DINOv3-B, it drops to the level of DINOv3-B itself: the template alone reproduces DINOv3’s failure in a model whose objects are intact. At this share, the injection with shuffled positions harms as much, thus what decides the damage is how much of the variance the pareidolic subspace takes, not the pattern it draws.</p><div class="columns fig-pair"><div class="column"><figure><img src="./assets/images/fig_scaling.png" alt="Figure 4: object discovery CorLoc on VOC07 of DINOv2-B and DINOv3-B against the scale factor gamma of the pareidolic subspace, with DINO-B as a dashed line"><figcaption><strong>Figure 4. Scaling down the pareidolic subspace restores object discovery.</strong></figcaption></figure></div><div class="column"><figure><img src="./assets/images/fig_injection.png" alt="Figure 5: object discovery CorLoc on VOC07 of DINO-B with DINOv3-B's template added at increasing shares of the variance, and with its positions shuffled, against raw DINO-B as a dashed line"><figcaption><strong>Figure 5. DINOv3’s template takes DINO’s objects away.</strong></figcaption></figure></div></div><div class="takeaway">Object emergence in DINOv2 and DINOv3 is therefore hindered by pareidolia rather than lost.</div></section>
+<section class="page-section"><h2 id="psc" class="title is-3 section-header">Pareidolic Subspace Calibration</h2><div class="header-line"></div><p>These findings naturally lead to a training-free calibration: since the pareidolic subspace is a property of the model and appears without any image content, its directions and their excess variance can be estimated from the response to noise alone. We propose <strong>P</strong>areidolic <strong>S</strong>ubspace <strong>C</strong>alibration (PSC), which measures the pareidolic subspace only on a noise input and then calibrates the features of natural inputs by scaling its directions down to the variance level of the remaining directions, without training or labels.</p><p>We evaluate PSC on the six DINOv2 and DINOv3 models, all frozen, and follow the <a href="#ref-tokencut" class="cite">TokenCut</a> protocol of each task. For each model, the pareidolic subspace and its calibration scales are computed once from a single noise image and applied unchanged to every image of every dataset; for video, the noise image has the frame size.</p><p>PSC improves every DINOv2 and DINOv3 model on all nine datasets and all metrics (Tabs.&nbsp;1&nbsp;to&nbsp;3), with the largest gains in video object segmentation, where the raw DINOv3 models fail most. Fig.&nbsp;6 shows the three tasks on individual images: the raw keys of DINOv2-B and DINOv3-B miss the object, and the calibrated keys return it.</p><div class="table-container"><table class="results compact qkv wide"><thead><tr><th rowspan="2">Model</th><th colspan="3" class="group">ECSSD</th><th colspan="3" class="group">DUTS-TE</th><th colspan="3" class="group">DUT-OMRON</th></tr><tr><th>maxF</th><th>IoU</th><th>Acc</th><th>maxF</th><th>IoU</th><th>Acc</th><th>maxF</th><th>IoU</th><th>Acc</th></tr></thead><tbody>
+<tr><td>DINOv2-S/14</td><td>57.2</td><td>52.1</td><td>74.5</td><td>46.5</td><td>39.6</td><td>74.6</td><td>32.9</td><td>28.5</td><td>67.3</td></tr>
+<tr><td class="sub">+ PSC</td><td>79.4<sub class="gain">+22.2</sub></td><td>72.0<sub class="gain">+19.9</sub></td><td>89.3<sub class="gain">+14.8</sub></td><td>73.6<sub class="gain">+27.1</sub></td><td>62.2<sub class="gain">+22.6</sub></td><td>90.4<sub class="gain">+15.8</sub></td><td>63.1<sub class="gain">+30.2</sub></td><td>56.2<sub class="gain">+27.7</sub></td><td>85.7<sub class="gain">+18.4</sub></td></tr>
+<tr><td>DINOv2-B/14</td><td>66.4</td><td>60.2</td><td>79.8</td><td>49.8</td><td>42.1</td><td>76.3</td><td>38.4</td><td>32.2</td><td>69.6</td></tr>
+<tr><td class="sub">+ PSC</td><td>81.2<sub class="gain">+14.8</sub></td><td>73.8<sub class="gain">+13.6</sub></td><td>89.7<sub class="gain">+9.9</sub></td><td>73.4<sub class="gain">+23.6</sub></td><td>62.2<sub class="gain">+20.1</sub></td><td>89.7<sub class="gain">+13.4</sub></td><td>62.5<sub class="gain">+24.1</sub></td><td>55.4<sub class="gain">+23.2</sub></td><td>85.2<sub class="gain">+15.6</sub></td></tr>
+<tr><td>DINOv2-L/14</td><td>64.7</td><td>58.3</td><td>80.9</td><td>49.7</td><td>41.5</td><td>79.1</td><td>35.7</td><td>28.8</td><td>71.7</td></tr>
+<tr class="rb"><td class="sub">+ PSC</td><td>81.3<sub class="gain">+16.6</sub></td><td>73.4<sub class="gain">+15.1</sub></td><td>90.1<sub class="gain">+9.2</sub></td><td>71.8<sub class="gain">+22.1</sub></td><td>60.7<sub class="gain">+19.2</sub></td><td>89.3<sub class="gain">+10.2</sub></td><td>60.8<sub class="gain">+25.1</sub></td><td>53.6<sub class="gain">+24.8</sub></td><td>85.2<sub class="gain">+13.5</sub></td></tr>
+<tr><td>DINOv3-S/16</td><td>65.4</td><td>54.1</td><td>79.9</td><td>52.7</td><td>38.4</td><td>76.6</td><td>41.0</td><td>28.0</td><td>67.6</td></tr>
+<tr><td class="sub">+ PSC</td><td>77.8<sub class="gain">+12.4</sub></td><td>70.7<sub class="gain">+16.6</sub></td><td>89.1<sub class="gain">+9.2</sub></td><td>67.0<sub class="gain">+14.3</sub></td><td>55.9<sub class="gain">+17.5</sub></td><td>88.3<sub class="gain">+11.7</sub></td><td>57.9<sub class="gain">+16.9</sub></td><td>51.9<sub class="gain">+23.9</sub></td><td>84.5<sub class="gain">+16.9</sub></td></tr>
+<tr><td>DINOv3-B/16</td><td>68.1</td><td>61.2</td><td>82.0</td><td>55.3</td><td>46.4</td><td>79.2</td><td>37.8</td><td>31.0</td><td>68.2</td></tr>
+<tr><td class="sub">+ PSC</td><td>81.9<sub class="gain">+13.8</sub></td><td>74.7<sub class="gain">+13.5</sub></td><td>90.3<sub class="gain">+8.3</sub></td><td>72.2<sub class="gain">+16.9</sub></td><td>60.6<sub class="gain">+14.2</sub></td><td>89.5<sub class="gain">+10.3</sub></td><td>61.8<sub class="gain">+24.0</sub></td><td>55.3<sub class="gain">+24.3</sub></td><td>85.5<sub class="gain">+17.3</sub></td></tr>
+<tr><td>DINOv3-L/16</td><td>69.2</td><td>58.3</td><td>82.7</td><td>54.9</td><td>40.8</td><td>78.5</td><td>41.6</td><td>29.5</td><td>68.9</td></tr>
+<tr><td class="sub">+ PSC</td><td>73.0<sub class="gain">+3.8</sub></td><td>62.4<sub class="gain">+4.1</sub></td><td>87.9<sub class="gain">+5.2</sub></td><td>64.1<sub class="gain">+9.2</sub></td><td>51.1<sub class="gain">+10.3</sub></td><td>88.4<sub class="gain">+9.9</sub></td><td>48.9<sub class="gain">+7.3</sub></td><td>42.1<sub class="gain">+12.6</sub></td><td>83.8<sub class="gain">+14.9</sub></td></tr>
+</tbody></table></div><div class="table-caption"><strong>Table 1. Unsupervised saliency detection.</strong></div><div class="columns tab-pair"><div class="column"><div class="table-container"><table class="results compact"><thead><tr><th>Model</th><th>VOC07</th><th>VOC12</th><th>COCO20K</th></tr></thead><tbody>
+<tr><td>DINOv2-S/14</td><td>40.7</td><td>45.9</td><td>36.4</td></tr>
+<tr><td class="sub">+ PSC</td><td>63.4<sub class="gain">+22.7</sub></td><td>68.5<sub class="gain">+22.6</sub></td><td>54.3<sub class="gain">+17.9</sub></td></tr>
+<tr><td>DINOv2-B/14</td><td>47.7</td><td>53.8</td><td>40.4</td></tr>
+<tr><td class="sub">+ PSC</td><td>65.4<sub class="gain">+17.7</sub></td><td>69.7<sub class="gain">+15.9</sub></td><td>55.6<sub class="gain">+15.2</sub></td></tr>
+<tr><td>DINOv2-L/14</td><td>46.4</td><td>51.7</td><td>38.8</td></tr>
+<tr class="rb"><td class="sub">+ PSC</td><td>65.5<sub class="gain">+19.1</sub></td><td>70.2<sub class="gain">+18.5</sub></td><td>57.2<sub class="gain">+18.4</sub></td></tr>
+<tr><td>DINOv3-S/16</td><td>39.6</td><td>46.0</td><td>29.0</td></tr>
+<tr><td class="sub">+ PSC</td><td>65.4<sub class="gain">+25.8</sub></td><td>70.6<sub class="gain">+24.6</sub></td><td>54.2<sub class="gain">+25.2</sub></td></tr>
+<tr><td>DINOv3-B/16</td><td>42.5</td><td>47.5</td><td>27.0</td></tr>
+<tr><td class="sub">+ PSC</td><td>68.1<sub class="gain">+25.6</sub></td><td>73.4<sub class="gain">+25.9</sub></td><td>58.7<sub class="gain">+31.7</sub></td></tr>
+<tr><td>DINOv3-L/16</td><td>39.9</td><td>45.7</td><td>27.2</td></tr>
+<tr><td class="sub">+ PSC</td><td>63.2<sub class="gain">+23.3</sub></td><td>66.2<sub class="gain">+20.5</sub></td><td>54.5<sub class="gain">+27.3</sub></td></tr>
+</tbody></table></div><div class="table-caption"><strong>Table 2. Unsupervised single object discovery.</strong></div></div><div class="column"><div class="table-container"><table class="results compact"><thead><tr><th>Model</th><th>DAVIS-2016</th><th>FBMS</th><th>SegTrackv2</th></tr></thead><tbody>
+<tr><td>DINOv2-S/14</td><td>23.7</td><td>35.5</td><td>31.1</td></tr>
+<tr><td class="sub">+ PSC</td><td>69.6<sub class="gain">+45.9</sub></td><td>75.5<sub class="gain">+40.0</sub></td><td>71.4<sub class="gain">+40.3</sub></td></tr>
+<tr><td>DINOv2-B/14</td><td>43.7</td><td>59.0</td><td>62.2</td></tr>
+<tr><td class="sub">+ PSC</td><td>71.1<sub class="gain">+27.4</sub></td><td>76.7<sub class="gain">+17.7</sub></td><td>71.1<sub class="gain">+8.9</sub></td></tr>
+<tr><td>DINOv2-L/14</td><td>51.8</td><td>59.3</td><td>56.4</td></tr>
+<tr class="rb"><td class="sub">+ PSC</td><td>72.1<sub class="gain">+20.3</sub></td><td>71.9<sub class="gain">+12.6</sub></td><td>71.1<sub class="gain">+14.7</sub></td></tr>
+<tr><td>DINOv3-S/16</td><td>15.6</td><td>19.2</td><td>10.6</td></tr>
+<tr><td class="sub">+ PSC</td><td>71.4<sub class="gain">+55.8</sub></td><td>72.4<sub class="gain">+53.2</sub></td><td>68.5<sub class="gain">+57.9</sub></td></tr>
+<tr><td>DINOv3-B/16</td><td>22.9</td><td>27.5</td><td>20.2</td></tr>
+<tr><td class="sub">+ PSC</td><td>77.0<sub class="gain">+54.1</sub></td><td>73.5<sub class="gain">+46.0</sub></td><td>71.4<sub class="gain">+51.2</sub></td></tr>
+<tr><td>DINOv3-L/16</td><td>18.6</td><td>24.1</td><td>15.8</td></tr>
+<tr><td class="sub">+ PSC</td><td>78.5<sub class="gain">+59.9</sub></td><td>65.8<sub class="gain">+41.7</sub></td><td>67.3<sub class="gain">+51.5</sub></td></tr>
+</tbody></table></div><div class="table-caption"><strong>Table 3. Unsupervised video object segmentation.</strong></div></div></div><figure><img src="./assets/images/fig_qualitative.jpg" alt="Figure 6: raw features and features after PSC of DINOv2-B and DINOv3-B on object discovery (VOC07), saliency detection (ECSSD) and video object segmentation (DAVIS-2016), with the IoU or J of each prediction"><figcaption><strong>Figure 6. Objects return once the pareidolic subspace is calibrated.</strong></figcaption></figure><div class="takeaway">Across diverse object emergence tasks, PSC improves DINOv2 and DINOv3 by up to 31.7 CorLoc on object discovery, 30.2 maxF on saliency detection and 59.9&nbsp;𝒥 on video object segmentation.</div></section>
+<section class="page-section"><h2 id="origin" class="title is-3 section-header">Where Pareidolia Comes From</h2><div class="header-line"></div><div class="wrapblock"><div class="wrap-right fig"><figure><img src="./assets/images/fig_layerwise.png" alt="Figure 7: pareidolia index of the keys per block against relative depth for DINOv3, DINOv2, iBOT and DINO"><figcaption><strong>Figure 7. All four families are strongly pareidolic in their middle blocks; only DINO becomes far less pareidolic by its last block.</strong></figcaption></figure></div><p>To further investigate what makes a model pareidolic, we trace its pareidolia index block by block, which measures how much of the noise response recurs across noise images. The trace reveals that all the ViTs we examine are strongly pareidolic in their early and middle blocks. In the last blocks, DINO becomes far less pareidolic, whereas the models that add a patch-level loss to its recipe remain strongly pareidolic.</p><p><a href="#ref-ibot" class="cite">iBOT</a> shares DINO’s data, architecture, crops and <code>[CLS]</code> loss and adds one ingredient, masked patch prediction, the patch-level loss that DINOv2 and DINOv3 also use.</p></div><p><strong>Generality.</strong> We further extend the analysis to 24 self-supervised models from 11 families and find that the split between the two losses remains consistent at the last block: every model trained with a patch-level loss, such as MAE, I-JEPA or data2vec, is far more pareidolic than every model trained with an image-level loss alone, such as MoCo&nbsp;v3 or MSN.</p><p>Controlled training confirms that the loss decides: trained from scratch with the same data, architecture and schedule, a ViT remains strongly pareidolic to its last block under iBOT’s patch-level loss but becomes far less pareidolic under DINO’s image-level loss alone, and removing the patch-level loss from a trained iBOT has the same effect.</p><figure><img src="./assets/images/fig_controlled.png" alt="Figure 8: pareidolia index and object discovery per epoch for ViT-S/16 pairs trained from scratch on ImageNet-100 with DINO's image-level loss alone or with iBOT's patch-level loss added, and for the released iBOT-S continued with its patch-level loss kept or removed"><figcaption><strong>Figure 8. The patch-level loss keeps pareidolia strong, and it costs object discovery.</strong></figcaption></figure><p>This matches how pareidolia arises in human perception, where what is perceived combines expectations with sensory evidence and pareidolia appears when the expectations outweigh weak evidence. A patch-level loss rewards such expectations: from the visible context, the model must predict the features of masked patches whose content its input does not contain, so it learns strong expectations about patch content, which then surface even on noise. DINO’s image-level loss acts only on the <code>[CLS]</code> token, asking the outputs for different crops of the same image to agree, so the patch features receive no target of their own and are never trained to fill in content that is absent.</p><div class="takeaway">Pareidolia forms in the middle blocks of every self-supervised model we examine but stays strong to the last block only in models trained with a patch-level loss.</div></section>
+<section class="page-section"><h2 id="bibtex" class="title is-4 section-header plain-header">BibTeX</h2><pre class="bibtex">@article{lin2026modern,
+  title   = {Modern Self-Supervised Vision Transformers Are Pareidolic},
+  author  = {Lin, Zihang and Qin, Huaiyuan and Zhen, Liangli and Guo, Qing and
+             Liu, Jun and Ong, Yew Soon and Zhu, Hongyuan},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</pre><h2 class="title is-4 section-header plain-header" style="margin-top: 1.5em;">Acknowledgements</h2>
+      <p>This page is adapted from the <a href="https://echo-bench.github.io/" target="_blank">ECHO</a> project page, itself built on the <a href="https://nerfies.github.io/" target="_blank">Nerfies</a> template.</p><h2 id="references" class="title is-4 section-header plain-header" style="margin-top: 1.5em;">References</h2><ol class="refs"><li id="ref-dino">Mathilde Caron, Hugo Touvron, Ishan Misra, Herv&eacute; J&eacute;gou, Julien Mairal, Piotr Bojanowski, and Armand Joulin. <a href="https://arxiv.org/abs/2104.14294" target="_blank">Emerging Properties in Self-Supervised Vision Transformers</a>. <em>IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 2021.</li><li id="ref-dinov2">Maxime Oquab, Timoth&eacute;e Darcet, Th&eacute;o Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, et al. <a href="https://arxiv.org/abs/2304.07193" target="_blank">DINOv2: Learning Robust Visual Features without Supervision</a>. <em>Transactions on Machine Learning Research (TMLR)</em>, 2024.</li><li id="ref-dinov3">Oriane Sim&eacute;oni, Huy V. Vo, Maximilian Seitzer, Federico Baldassarre, Maxime Oquab, Cijo Jose, Vasil Khalidov, Marc Szafraniec, Seungeun Yi, Micha&euml;l Ramamonjisoa, et al. <a href="https://arxiv.org/abs/2508.10104" target="_blank">DINOv3</a>. <em>arXiv preprint</em>, 2025.</li><li id="ref-tokencut">Yangtao Wang, Xi Shen, Yuan Yuan, Yuming Du, Maomao Li, Shell Xu Hu, James L. Crowley, and Dominique Vaufreydaz. <a href="https://arxiv.org/abs/2209.00383" target="_blank">TokenCut: Segmenting Objects in Images and Videos with Self-supervised Transformer and Normalized Cut</a>. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</em>, 2023.</li><li id="ref-ibot">Jinghao Zhou, Chen Wei, Huiyu Wang, Wei Shen, Cihang Xie, Alan Yuille, and Tao Kong. <a href="https://arxiv.org/abs/2111.07832" target="_blank">iBOT: Image BERT Pre-Training with Online Tokenizer</a>. <em>International Conference on Learning Representations (ICLR)</em>, 2022.</li></ol></section>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="back-to-top button is-dark is-small" title="Back to top"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" style="vertical-align:-0.125em"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></span></a>
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  if (!links.length) return;
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var current = -1;
+  function update() {
+    var y = window.pageYOffset + 140, best = 0;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top + window.pageYOffset <= y) best = i;
+    }
+    if (best !== current) {
+      current = best;
+      links.forEach(function (a, i) { a.classList.toggle('is-active', i === best); });
+    }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>
